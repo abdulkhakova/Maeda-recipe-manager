@@ -32,47 +32,5 @@ Quick ingredient delivery: Order missing ingredients through partners like Yande
 Smart shopping lists: Automatically create lists from selected recipes
 Checkout process: Seamless ordering with multiple payment options
 
-🚀 Getting Started
-Prerequisites
-
-Node.js (v14.0 or higher)
-NPM (v6.0 or higher)
-
-Installation
-
-Clone the repository
-bashgit clone https://github.com/yourusername/maeda-recipe-manager.git
-cd maeda-recipe-manager
-
-Install dependencies
-bashnpm install
-
-Start the development server
-bashnpm run dev
-
-Open your browser and navigate to http://localhost:3000
-
-🛠️ Tech Stack
-
-Frontend: HTML5, CSS3, JavaScript (ES6+)
-UI Components: Custom-built responsive components
-Authentication: Custom authentication system
-
-📱 Responsive Design
-The application is fully responsive and optimized for:
-
-Desktop computers
-Tablets
-Mobile phones
-
-🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-Fork the repository
-Create your feature branch (git checkout -b feature/amazing-feature)
-Commit your changes (git commit -m 'Add some amazing feature')
-Push to the branch (git push origin feature/amazing-feature)
-Open a Pull Request
-
-📄 License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
