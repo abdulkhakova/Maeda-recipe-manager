@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uzbek Cuisine - Maeda Recipe Manager</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/pages/uzbek.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta name="description" content="Explore authentic Uzbek cuisine with traditional recipes from Central Asia" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Maeda</h1>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="../index.html" id="home-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="uzbek.html" id="uzbek-link" class="active"><i class="fas fa-globe-asia"></i> Uzbek Cuisine</a></li>
+            <li><a href="european.html" id="european-link"><i class="fas fa-globe-europe"></i> European Cuisine</a></li>
+            <li><a href="shopping-list.html" id="shopping-link"><i class="fas fa-shopping-basket"></i> Shopping List</a></li>
+            <li><a href="video-tutorials.html" class="video-tutorials" id="videos-link"><i class="fas fa-play-circle"></i> Video Tutorials</a></li>
+        </ul>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search recipes..." aria-label="Search recipes" id="search-input" />
+            <button aria-label="Search" id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="user-controls">
+            <button class="sign-in-btn" id="sign-in-btn">Sign In</button>
+            <button class="sign-up-btn" id="sign-up-btn">Sign Up</button>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Menu" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Uzbek Cuisine</h1>
+            <p>Experience the rich flavors of Central Asia with our authentic Uzbek recipes passed down through generations</p>
+            <div class="hero-actions">
+                <button class="primary-btn" id="save-collection-btn"><i class="fas fa-bookmark"></i> Save Collection</button>
+                <button class="secondary-btn" id="share-collection-btn"><i class="fas fa-share-alt"></i> Share</button>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </header>
+    
+    <div class="pattern-divider"></div>
+    
+    <main id="uzbek-page">
+        <section class="intro-section">
+            <div class="container">
+                <div class="intro-content">
+                    <h2>Discover Uzbek Cuisine</h2>
+                    <p>Uzbek cuisine is a vibrant tapestry of flavors influenced by its rich cultural heritage and position along the ancient Silk Road. Known for aromatic rice dishes, tender meats, fresh-baked breads, and sweet desserts, Uzbek food celebrates community and tradition.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="recipe-filter-section">
+            <div class="container">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All Recipes</button>
+                    <button class="filter-tab" data-filter="main">Main Dishes</button>
+                    <button class="filter-tab" data-filter="bread">Breads</button>
+                    <button class="filter-tab" data-filter="soup">Soups</button>
+                    <button class="filter-tab" data-filter="dessert">Desserts</button>
+                </div>
+                
+                <div class="recipe-grid">
+                    <div class="recipe-card" data-category="main">
+                        <div class="recipe-image">
+                            <img src="../images/recipes/uzbek/plov.jpg" alt="Uzbek Plov">
+                            <span class="recipe-badge popular">Popular</span>
+                            <div class="recipe-actions">
+                                <button class="recipe-action-btn save-recipe" aria-label="Save recipe" data-recipe-id="plov">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="recipe-action-btn share-recipe" aria-label="Share recipe" data-recipe-id="plov">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="recipe-details">
+                            <h3>Uzbek Plov</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-signal"></i> Medium</span>
+                                <span><i class="far fa-clock"></i> 90 min</span>
+                                <span><i class="fas fa-fire"></i> 450 cal</span>
+                            </div>
+                            <p class="recipe-description">The national dish of Uzbekistan, this aromatic rice dish is made with tender chunks of lamb, carrots, and a blend of traditional spices.</p>
+                            <button class="view-recipe-btn" data-recipe-id="plov">View Recipe</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card" data-category="main">
+                        <div class="recipe-image">
+                            <img src="../images/recipes/uzbek/samsa.jpg" alt="Samsa">
+                            <div class="recipe-actions">
+                                <button class="recipe-action-btn save-recipe" aria-label="Save recipe" data-recipe-id="samsa">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="recipe-action-btn share-recipe" aria-label="Share recipe" data-recipe-id="samsa">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="recipe-details">
+                            <h3>Samsa</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-signal"></i> Medium</span>
+                                <span><i class="far fa-clock"></i> 60 min</span>
+                                <span><i class="fas fa-fire"></i> 320 cal</span>
+                            </div>
+                            <p class="recipe-description">Savory pastries filled with juicy meat and onions, baked to golden perfection in a traditional tandoor oven.</p>
+                            <button class="view-recipe-btn" data-recipe-id="samsa">View Recipe</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card" data-category="soup">
+                        <div class="recipe-image">
+                            <img src="../images/recipes/uzbek/lagman.jpg" alt="Lagman Soup">
+                            <div class="recipe-actions">
+                                <button class="recipe-action-btn save-recipe" aria-label="Save recipe" data-recipe-id="lagman">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="recipe-action-btn share-recipe" aria-label="Share recipe" data-recipe-id="lagman">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="recipe-details">
+                            <h3>Lagman Soup</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-signal"></i> Hard</span>
+                                <span><i class="far fa-clock"></i> 120 min</span>
+                                <span><i class="fas fa-fire"></i> 380 cal</span>
+                            </div>
+                            <p class="recipe-description">A hearty noodle soup with hand-pulled noodles, tender beef, and a medley of fresh vegetables in a flavorful broth.</p>
+                            <button class="view-recipe-btn" data-recipe-id="lagman">View Recipe</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card" data-category="bread">
+                        <div class="recipe-image">
+                            <img src="../images/recipes/uzbek/non.jpg" alt="Uzbek Non Bread">
+                            <span class="recipe-badge vegetarian">Vegetarian</span>
+                            <div class="recipe-actions">
+                                <button class="recipe-action-btn save-recipe" aria-label="Save recipe" data-recipe-id="non">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="recipe-action-btn share-recipe" aria-label="Share recipe" data-recipe-id="non">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="recipe-details">
+                            <h3>Uzbek Non (Bread)</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-signal"></i> Easy</span>
+                                <span><i class="far fa-clock"></i> 75 min</span>
+                                <span><i class="fas fa-fire"></i> 210 cal</span>
+                            </div>
+                            <p class="recipe-description">Traditional Uzbek flatbread with a beautifully stamped pattern, baked until golden and often served with tea.</p>
+                            <button class="view-recipe-btn" data-recipe-id="non">View Recipe</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card" data-category="soup">
+                        <div class="recipe-image">
+                            <img src="../images/recipes/uzbek/chuchvara.jpg" alt="Chuchvara">
+                            <div class="recipe-actions">
+                                <button class="recipe-action-btn save-recipe" aria-label="Save recipe" data-recipe-id="chuchvara">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="recipe-action-btn share-recipe" aria-label="Share recipe" data-recipe-id="chuchvara">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="recipe-details">
+                            <h3>Chuchvara</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-signal"></i> Medium</span>
+                                <span><i class="far fa-clock"></i> 90 min</span>
+                                <span><i class="fas fa-fire"></i> 340 cal</span>
+                            </div>
+                            <p class="recipe-description">Small dumplings filled with seasoned meat and onions, served in a light broth with fresh herbs.</p>
+                            <button class="view-recipe-btn" data-recipe-id="chuchvara">View Recipe</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card" data-category="main">
+                        <div class="recipe-image">
+                            <img src="../images/recipes/uzbek/shashlik.jpg" alt="Shashlik">
+                            <div class="recipe-actions">
+                                <button class="recipe-action-btn save-recipe" aria-label="Save recipe" data-recipe-id="shashlik">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="recipe-action-btn share-recipe" aria-label="Share recipe" data-recipe-id="shashlik">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="recipe-details">
+                            <h3>Shashlik</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-signal"></i> Easy</span>
+                                <span><i class="far fa-clock"></i> 45 min</span>
+                                <span><i class="fas fa-fire"></i> 290 cal</span>
+                            </div>
+                            <p class="recipe-description">Marinated meat skewers grilled to perfection, traditionally served with sliced onions and sumac.</p>
+                            <button class="view-recipe-btn" data-recipe-id="shashlik">View Recipe</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card" data-category="dessert">
+                        <div class="recipe-image">
+                            <img src="../images/recipes/uzbek/halva.jpg" alt="Uzbek Halva">
+                            <span class="recipe-badge vegetarian">Vegetarian</span>
+                            <div class="recipe-actions">
+                                <button class="recipe-action-btn save-recipe" aria-label="Save recipe" data-recipe-id="halva">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="recipe-action-btn share-recipe" aria-label="Share recipe" data-recipe-id="halva">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="recipe-details">
+                            <h3>Uzbek Halva</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-signal"></i> Medium</span>
+                                <span><i class="far fa-clock"></i> 60 min</span>
+                                <span><i class="fas fa-fire"></i> 420 cal</span>
+                            </div>
+                            <p class="recipe-description">A sweet confection made with flour, butter, and sugar, often flavored with nuts and dried fruits.</p>
+                            <button class="view-recipe-btn" data-recipe-id="halva">View Recipe</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-card" data-category="dessert">
+                        <div class="recipe-image">
+                            <img src="../images/recipes/uzbek/chak-chak.jpg" alt="Chak-Chak">
+                            <div class="recipe-actions">
+                                <button class="recipe-action-btn save-recipe" aria-label="Save recipe" data-recipe-id="chak-chak">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="recipe-action-btn share-recipe" aria-label="Share recipe" data-recipe-id="chak-chak">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="recipe-details">
+                            <h3>Chak-Chak</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-signal"></i> Medium</span>
+                                <span><i class="far fa-clock"></i> 50 min</span>
+                                <span><i class="fas fa-fire"></i> 380 cal</span>
+                            </div>
+                            <p class="recipe-description">A festive dessert made of deep-fried dough pieces bound together with honey and formed into a mound.</p>
+                            <button class="view-recipe-btn" data-recipe-id="chak-chak">View Recipe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="culture-section">
+            <div class="container">
+                <div class="culture-content">
+                    <div class="culture-image">
+                        <img src="../images/uzbek-culture.jpg" alt="Uzbek Cultural Cooking">
+                    </div>
+                    <div class="culture-info">
+                        <h2>The Rich Heritage of Uzbek Cuisine</h2>
+                        <p>Uzbek cuisine is influenced by local agriculture, as in most nations. There is a great deal of grain farming in Uzbekistan, so breads and noodles are of importance, and Uzbek cuisine has been characterized as "noodle-rich".</p>
+                        <p>Mutton is a popular variety of meat due to the abundance of sheep in the country and it is a part of various Uzbek dishes. Uzbekistan's signature dish is palov (plov or osh), a main course typically made with rice, meat, carrots and onions, though it was not available to ordinary people until the 1930s.</p>
+                        <div class="culture-features">
+                            <div class="feature">
+                                <i class="fas fa-wheat-awn"></i>
+                                <span>Grain-based</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <span>Rich in Meat</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-pepper-hot"></i>
+                                <span>Aromatic Spices</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bread-slice"></i>
+                                <span>Fresh Breads</span>
+                            </div>
+                        </div>
+                        <button class="learn-more-btn" id="learn-more-btn">Explore Uzbek Culinary Traditions</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="featured-section">
+            <div class="container">
+                <h2>Featured Cooking Techniques</h2>
+                <div class="technique-cards">
+                    <div class="technique-card">
+                        <div class="technique-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Tandoor Baking</h3>
+                        <p>Learn the traditional method of baking bread and meat in clay ovens that give Uzbek dishes their unique flavor.</p>
+                        <button class="technique-link" data-technique="tandoor">Learn More</button>
+                    </div>
+                    <div class="technique-card">
+                        <div class="technique-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Kazan Cooking</h3>
+                        <p>Master the art of cooking in a kazan, the traditional cast-iron pot used to prepare Uzbekistan's famous plov.</p>
+                        <button class="technique-link" data-technique="kazan">Learn More</button>
+                    </div>
+                    <div class="technique-card">
+                        <div class="technique-icon">
+                            <i class="fas fa-mortar-pestle"></i>
+                        </div>
+                        <h3>Spice Blending</h3>
+                        <p>Discover how to create authentic Uzbek flavor profiles with the perfect balance of spices and herbs.</p>
+                        <button class="technique-link" data-technique="spice">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Get More Uzbek Recipes</h2>
+                    <p>Subscribe to our newsletter and receive exclusive Uzbek recipes, cooking tips, and cultural insights.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Your email address" required id="newsletter-email">
+                        <button type="submit" class="subscribe-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h5>About Maeda</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Explore</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Recipe Collections</a></li>
+                    <li><a href="#">Seasonal Favorites</a></li>
+                    <li><a href="#">Cooking Tips</a></li>
+                    <li><a href="#">Ingredient Guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Connect with Us</h5>
+                <p>Join our community and get the latest recipes and cooking tips.</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Maeda Recipe Manager. All rights reserved.
+        </div>
+    </footer>
+    
+    <!-- Modals -->
+    <div class="modal" id="login-modal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal" aria-label="Close">&times;</button>
+            <h3 class="modal-title">Sign In</h3>
+            <form class="login-form" id="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <button type="button" class="forgot-password" id="forgot-password">Forgot password?</button>
+                </div>
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+            <div class="login-options">
+                <p>Or sign in with</p>
+                <div class="social-login">
+                    <button class="social-login-btn" aria-label="Sign in with Facebook" id="facebook-login"><i class="fab fa-facebook-f"></i></button>
+                    <button class="social-login-btn" aria-label="Sign in with Google" id="google-login"><i class="fab fa-google"></i></button>
+                    <button class="social-login-btn" aria-label="Sign in with LinkedIn" id="linkedin-login"><i class="fab fa-linkedin-in"></i></button>
+                </div>
+            </div>
+            <button class="register-link" id="register-link">Don't have an account? Sign up</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="signup-modal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" id="close-signup-modal" aria-label="Close">&times;</button>
+            <h3 class="modal-title">Create an Account</h3>
+            <form class="signup-form" id="signup-form">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <button type="button" class="text-link" id="terms-link">Terms of Service</button> and <button type="button" class="text-link" id="privacy-link">Privacy Policy</button></label>
+                </div>
+                <button type="submit" class="signup-btn">Create Account</button>
+            </form>
+            <div class="login-options">
+                <p>Or sign up with</p>
+                <div class="social-login">
+                    <button class="social-login-btn" aria-label="Sign up with Facebook" id="facebook-signup"><i class="fab fa-facebook-f"></i></button>
+                    <button class="social-login-btn" aria-label="Sign up with Google" id="google-signup"><i class="fab fa-google"></i></button>
+                    <button class="social-login-btn" aria-label="Sign up with LinkedIn" id="linkedin-signup"><i class="fab fa-linkedin-in"></i></button>
+                </div>
+            </div>
+            <button class="login-link" id="login-link">Already have an account? Sign in</button>
+        </div>
+    </div>
+    
+    <div class="modal recipe-modal" id="recipe-modal" aria-hidden="true">
+        <div class="modal-content recipe-modal-content">
+            <button class="close-modal" id="close-recipe-modal" aria-label="Close">&times;</button>
+            <div class="recipe-modal-header">
+                <h2 id="recipe-modal-title">Recipe Title</h2>
+                <div class="recipe-modal-actions">
+                    <button class="action-btn" id="save-recipe-modal" aria-label="Save recipe"><i class="far fa-heart"></i></button>
+                    <button class="action-btn" id="print-recipe" aria-label="Print recipe"><i class="fas fa-print"></i></button>
+                    <button class="action-btn" id="share-recipe-modal" aria-label="Share recipe"><i class="fas fa-share-alt"></i></button>
+                </div>
+            </div>
+            
+            <div class="recipe-modal-hero">
+                <img id="recipe-modal-image" src="" alt="Recipe Image">
+            </div>
+            
+            <div class="recipe-modal-info">
+                <div class="info-badge"><i class="fas fa-signal"></i> <span id="recipe-difficulty">Medium</span></div>
+                <div class="info-badge"><i class="far fa-clock"></i> <span id="recipe-time">90 min</span></div>
+                <div class="info-badge"><i class="fas fa-fire"></i> <span id="recipe-calories">450 cal</span></div>
+                <div class="info-badge"><i class="fas fa-user-friends"></i> <span id="recipe-servings">4 servings</span></div>
+            </div>
+            
+            <div class="recipe-modal-body">
+                <div class="recipe-ingredients">
+                    <h3>Ingredients</h3>
+                    <ul id="recipe-ingredients-list"></ul>
+                    <button class="add-shopping-btn" id="add-to-shopping-list"><i class="fas fa-shopping-basket"></i> Add All to Shopping List</button>
+                </div>
+                
+                <div class="recipe-instructions">
+                    <h3>Instructions</h3>
+                    <ol id="recipe-instructions-list"></ol>
+                </div>
+            </div>
+            
+            <div class="recipe-tips-section">
+                <h3>Chef's Tips</h3>
+                <div class="tip-content" id="recipe-tips-text"></div>
+            </div>
+            
+            <div class="recipe-nutrition">
+                <h3>Nutrition Facts</h3>
+                <div class="nutrition-grid" id="nutrition-facts"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="share-modal" aria-hidden="true">
+        <div class="modal-content share-modal-content">
+            <button class="close-modal" id="close-share-modal" aria-label="Close">&times;</button>
+            <h3 class="modal-title">Share</h3>
+            <p class="share-text">Share this recipe with friends and family</p>
+            <div class="share-options">
+                <button class="share-option" id="share-facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </button>
+                <button class="share-option" id="share-twitter">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </button>
+                <button class="share-option" id="share-pinterest">
+                    <i class="fab fa-pinterest-p"></i>
+                    <span>Pinterest</span>
+                </button>
+                <button class="share-option" id="share-email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </button>
+            </div>
+            <div class="share-link-container">
+                <input type="text" id="share-link" readonly>
+                <button id="copy-link"><i class="fas fa-copy"></i> Copy</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle toast-icon"></i>
+            <div class="toast-message">Success! Your action has been completed.</div>
+        </div>
+        <button class="toast-close" id="toast-close">&times;</button>
+    </div>
+
+    <script src="../js/modal.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/uzbek.js"></script>
+</body>
+</html>

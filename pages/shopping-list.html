@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shop for recipe ingredients with quick delivery options through Maeda Recipe Manager" />
+  <title>Shopping List - Maeda Recipe Manager</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/pages/shopping-list.css" />
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/index.html">
+        <h1>Maeda</h1>
+      </a>
+    </div>
+
+    <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="menu-icon"></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="uzbek.html"><i class="fas fa-globe-asia"></i> Uzbek Cuisine</a></li>
+      <li><a href="european.html"><i class="fas fa-globe-europe"></i> European Cuisine</a></li>
+      <li><a href="shopping-list.html" aria-current="page"><i class="fas fa-shopping-basket"></i> Shopping List</a></li>
+      <li><a href="video-tutorials.html"><i class="fas fa-play-circle"></i> Video Tutorials</a></li>
+    </ul>
+
+    <div class="search-box">
+      <form action="/pages/search-results.html" method="get">
+        <label for="search" class="visually-hidden">Search recipes</label>
+        <input type="text" id="search" name="q" placeholder="Search recipes..." aria-label="Search recipes" />
+        <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+
+    <div class="user-controls">
+      <button class="sign-in-btn" id="sign-in-btn" aria-haspopup="dialog"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+      <button class="sign-up-btn" onclick="location.href='/pages/register.html'"><i class="fas fa-user"></i> Sign Up</button>
+    </div>
+  </nav>
+
+    <main>
+        <div class="delivery-section">
+            <div class="delivery-header">
+                <h2>Quick Delivery</h2>
+                <p>Get ingredients delivered to your door in 15-60 minutes</p>
+            </div>
+            
+            <div class="delivery-options">
+                <div class="delivery-provider active" data-provider="yandex">
+                    <div class="provider-icon">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <span>Yandex Lavka</span>
+                </div>
+                <div class="delivery-provider" data-provider="samokat">
+                    <div class="provider-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <span>Samokat</span>
+                </div>
+                <div class="delivery-provider" data-provider="sbermarket">
+                    <div class="provider-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <span>SberMarket</span>
+                </div>
+            </div>
+            
+            <div class="delivery-address">
+                <div class="address-input">
+                    <label for="delivery-address-input" class="visually-hidden">Delivery address</label>
+                    <input type="text" id="delivery-address-input" placeholder="Enter your delivery address..." aria-label="Delivery address">
+                    <button id="use-location" type="button"><i class="fas fa-map-marker-alt"></i> Use my location</button>
+                </div>
+                <div class="delivery-time">
+                    <span>Estimated delivery time:</span>
+                    <strong>15-30 minutes</strong>
+                </div>
+            </div>
+            
+            <div class="delivery-items">
+                <h3>Items available for quick delivery</h3>
+                
+                <div class="delivery-categories">
+                    <button class="delivery-category active" data-category="all" type="button">All</button>
+                    <button class="delivery-category" data-category="produce" type="button">Produce</button>
+                    <button class="delivery-category" data-category="dairy" type="button">Dairy</button>
+                    <button class="delivery-category" data-category="meat" type="button">Meat</button>
+                    <button class="delivery-category" data-category="pantry" type="button">Pantry</button>
+                </div>
+                
+                <div class="delivery-grid">
+                    <div class="delivery-item" data-category="produce">
+                        <div class="delivery-item-img">
+                            <img src="/images/products/carrots.jpg" alt="Carrots" width="120" height="120" loading="lazy">
+                        </div>
+                        <div class="delivery-item-info">
+                            <h4>Carrots</h4>
+                            <p class="item-description">Fresh local carrots, 500g pack</p>
+                            <div class="item-price">
+                                <span class="current-price">7,900 UZS</span>
+                                <span class="original-price">9,900 UZS</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" type="button" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+                                <label for="carrot-quantity" class="visually-hidden">Quantity</label>
+                                <input type="number" id="carrot-quantity" value="1" min="1" max="10" aria-label="Item quantity">
+                                <button class="quantity-btn plus" type="button" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-cart" type="button"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-item" data-category="produce">
+                        <div class="delivery-item-img">
+                            <img src="/images/products/tomatoes.jpg" alt="Tomatoes" width="120" height="120" loading="lazy">
+                        </div>
+                        <div class="delivery-item-info">
+                            <h4>Tomatoes</h4>
+                            <p class="item-description">Ripe red tomatoes, 400g pack</p>
+                            <div class="item-price">
+                                <span class="current-price">12,900 UZS</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" type="button" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+                                <label for="tomato-quantity" class="visually-hidden">Quantity</label>
+                                <input type="number" id="tomato-quantity" value="1" min="1" max="10" aria-label="Item quantity">
+                                <button class="quantity-btn plus" type="button" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-cart" type="button"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-item" data-category="produce">
+                        <div class="delivery-item-img">
+                            <img src="/images/products/onions.jpg" alt="Onions" width="120" height="120" loading="lazy">
+                            <span class="discount-badge">-20%</span>
+                        </div>
+                        <div class="delivery-item-info">
+                            <h4>Onions</h4>
+                            <p class="item-description">Yellow onions, 1kg bag</p>
+                            <div class="item-price">
+                                <span class="current-price">5,900 UZS</span>
+                                <span class="original-price">7,500 UZS</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" type="button" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+                                <label for="onion-quantity" class="visually-hidden">Quantity</label>
+                                <input type="number" id="onion-quantity" value="1" min="1" max="10" aria-label="Item quantity">
+                                <button class="quantity-btn plus" type="button" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-cart" type="button"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-item" data-category="dairy">
+                        <div class="delivery-item-img">
+                            <img src="/images/products/milk.jpg" alt="Milk" width="120" height="120" loading="lazy">
+                        </div>
+                        <div class="delivery-item-info">
+                            <h4>Milk</h4>
+                            <p class="item-description">Fresh whole milk, 1L</p>
+                            <div class="item-price">
+                                <span class="current-price">8,900 UZS</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" type="button" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+                                <label for="milk-quantity" class="visually-hidden">Quantity</label>
+                                <input type="number" id="milk-quantity" value="1" min="1" max="10" aria-label="Item quantity">
+                                <button class="quantity-btn plus" type="button" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-cart" type="button"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-item" data-category="dairy">
+                        <div class="delivery-item-img">
+                            <img src="/images/products/yogurt.jpg" alt="Greek Yogurt" width="120" height="120" loading="lazy">
+                        </div>
+                        <div class="delivery-item-info">
+                            <h4>Greek Yogurt</h4>
+                            <p class="item-description">Plain Greek yogurt, 500g</p>
+                            <div class="item-price">
+                                <span class="current-price">11,900 UZS</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" type="button" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+                                <label for="yogurt-quantity" class="visually-hidden">Quantity</label>
+                                <input type="number" id="yogurt-quantity" value="1" min="1" max="10" aria-label="Item quantity">
+                                <button class="quantity-btn plus" type="button" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-cart" type="button"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-item" data-category="meat">
+                        <div class="delivery-item-img">
+                            <img src="/images/products/chicken.jpg" alt="Chicken Breast" width="120" height="120" loading="lazy">
+                        </div>
+                        <div class="delivery-item-info">
+                            <h4>Chicken Breast</h4>
+                            <p class="item-description">Boneless chicken breast, 500g</p>
+                            <div class="item-price">
+                                <span class="current-price">27,900 UZS</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" type="button" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+                                <label for="chicken-quantity" class="visually-hidden">Quantity</label>
+                                <input type="number" id="chicken-quantity" value="1" min="1" max="10" aria-label="Item quantity">
+                                <button class="quantity-btn plus" type="button" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-cart" type="button"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-item" data-category="pantry">
+                        <div class="delivery-item-img">
+                            <img src="/images/products/rice.jpg" alt="Basmati Rice" width="120" height="120" loading="lazy">
+                        </div>
+                        <div class="delivery-item-info">
+                            <h4>Basmati Rice</h4>
+                            <p class="item-description">Premium basmati rice, 1kg</p>
+                            <div class="item-price">
+                                <span class="current-price">15,900 UZS</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" type="button" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+                                <label for="rice-quantity" class="visually-hidden">Quantity</label>
+                                <input type="number" id="rice-quantity" value="1" min="1" max="10" aria-label="Item quantity">
+                                <button class="quantity-btn plus" type="button" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-cart" type="button"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-item" data-category="pantry">
+                        <div class="delivery-item-img">
+                            <img src="/images/products/olive-oil.jpg" alt="Olive Oil" width="120" height="120" loading="lazy">
+                            <span class="discount-badge">-15%</span>
+                        </div>
+                        <div class="delivery-item-info">
+                            <h4>Olive Oil</h4>
+                            <p class="item-description">Extra virgin olive oil, 500ml</p>
+                            <div class="item-price">
+                                <span class="current-price">34,900 UZS</span>
+                                <span class="original-price">39,900 UZS</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" type="button" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+                                <label for="oil-quantity" class="visually-hidden">Quantity</label>
+                                <input type="number" id="oil-quantity" value="1" min="1" max="10" aria-label="Item quantity">
+                                <button class="quantity-btn plus" type="button" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-cart" type="button"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="delivery-cart">
+                <div class="cart-header">
+                    <h3>Your Delivery Cart</h3>
+                    <span class="cart-count">0</span>
+                </div>
+                
+                <div class="cart-items">
+                    <div class="empty-cart-message">Your cart is empty</div>
+                </div>
+                
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span class="subtotal">0 UZS</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery fee:</span>
+                        <span class="delivery-fee">9,900 UZS</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span class="total-price">9,900 UZS</span>
+                    </div>
+                </div>
+                
+                <button class="checkout-btn" disabled type="button">
+                    <i class="fas fa-shopping-cart"></i> Proceed to Checkout
+                </button>
+                
+                <div class="delivery-info">
+                    <div class="info-item">
+                        <span class="info-icon"><i class="fas fa-clock"></i></span>
+                        <span>Delivery in 15-60 minutes</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon"><i class="fas fa-credit-card"></i></span>
+                        <span>Pay online or cash on delivery</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon"><i class="fas fa-box"></i></span>
+                        <span>Free delivery on orders over 100,000 UZS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="auto-add-section">
+                <h3>Add missing items from your list</h3>
+                <p>These items from your shopping list are available for quick delivery:</p>
+                
+                <div class="missing-items">
+                    <div class="missing-item">
+                        <div class="missing-item-info">
+                            <span class="missing-name">Carrots (500g)</span>
+                            <span class="missing-price">7,900 UZS</span>
+                        </div>
+                        <button class="add-missing" type="button"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <div class="missing-item">
+                        <div class="missing-item-info">
+                            <span class="missing-name">Onions (3 pcs)</span>
+                            <span class="missing-price">5,900 UZS</span>
+                        </div>
+                        <button class="add-missing" type="button"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <div class="missing-item">
+                        <div class="missing-item-info">
+                            <span class="missing-name">Greek Yogurt (500g)</span>
+                            <span class="missing-price">11,900 UZS</span>
+                        </div>
+                        <button class="add-missing" type="button"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <div class="missing-item">
+                        <div class="missing-item-info">
+                            <span class="missing-name">Basmati Rice (1kg)</span>
+                            <span class="missing-price">15,900 UZS</span>
+                        </div>
+                        <button class="add-missing" type="button"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    
+                    <button class="add-all-missing" type="button">Add All Items (41,600 UZS)</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h5>About Maeda</h5>
+                <ul class="footer-links">
+                    <li><a href="/pages/about/story.html">Our Story</a></li>
+                    <li><a href="/pages/about/how-it-works.html">How It Works</a></li>
+                    <li><a href="/pages/about/careers.html">Careers</a></li>
+                    <li><a href="/pages/about/press.html">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Explore</h5>
+                <ul class="footer-links">
+                    <li><a href="/pages/collections.html">Recipe Collections</a></li>
+                    <li><a href="/pages/seasonal.html">Seasonal Favorites</a></li>
+                    <li><a href="/pages/tips.html">Cooking Tips</a></li>
+                    <li><a href="/pages/ingredients.html">Ingredient Guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul class="footer-links">
+                    <li><a href="/pages/support/help.html">Help Center</a></li>
+                    <li><a href="/pages/support/contact.html">Contact Us</a></li>
+                    <li><a href="/pages/support/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/pages/support/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Connect with Us</h5>
+                <p>Join our community and get the latest recipes and cooking tips.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/maeda" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/maeda" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/maeda" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/maeda" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Maeda Recipe Manager. All rights reserved.
+        </div>
+    </footer>
+    
+    <div class="modal" id="checkout-modal" aria-labelledby="checkout-title" aria-modal="true" role="dialog" hidden>
+        <div class="modal-content checkout-modal-content">
+            <button class="close-modal" id="close-checkout-modal" aria-label="Close">&times;</button>
+            <h3 class="modal-title" id="checkout-title">Complete Your Order</h3>
+            
+            <div class="checkout-steps">
+                <div class="checkout-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-name">Delivery Details</div>
+                </div>
+                <div class="checkout-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-name">Payment</div>
+                </div>
+                <div class="checkout-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-name">Confirmation</div>
+                </div>
+            </div>
+            
+            <div class="checkout-content">
+                <div class="checkout-step-content active" data-step="1">
+                    <form class="delivery-form">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone-number">Phone Number</label>
+                            <input type="tel" id="phone-number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="complete-address">Address</label>
+                            <input type="text" id="complete-address" required value="">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="apartment">Apartment/Suite</label>
+                                <input type="text" id="apartment">
+                            </div>
+                            <div class="form-group">
+                                <label for="floor">Floor</label>
+                                <input type="number" id="floor" min="1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-instructions">Delivery Instructions (Optional)</label>
+                            <textarea id="delivery-instructions" rows="3" placeholder="E.g., Door code, landmarks, etc."></textarea>
+                        </div>
+                    </form>
+                    <div class="step-actions">
+                        <button class="secondary-btn" id="cancel-checkout" type="button">Cancel</button>
+                        <button class="primary-btn" id="next-step-1" type="button">Continue to Payment</button>
+                    </div>
+                </div>
+                
+                <div class="checkout-step-content" data-step="2">
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <input type="radio" id="card-payment" name="payment-method" checked>
+                            <label for="card-payment">Credit/Debit Card</label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="cash-payment" name="payment-method">
+                            <label for="cash-payment">Cash on Delivery</label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="online-payment" name="payment-method">
+                            <label for="online-payment">Online Payment (Apple Pay/Google Pay)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="card-details">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry-date">Expiry Date</label>
+                                <input type="text" id="expiry-date" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name">
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button class="secondary-btn" id="back-step-2" type="button">Back</button>
+                        <button class="primary-btn" id="next-step-2" type="button">Confirm Order</button>
+                    </div>
+                </div>
+                
+                <div class="checkout-step-content" data-step="3">
+                    <div class="order-confirmation">
+                        <div class="confirmation-icon"><i class="fas fa-check-circle"></i></div>
+                        <h4>Order Confirmed!</h4>
+                        <p>Your order has been placed successfully.</p>
+                        <div class="order-details">
+                            <div class="order-detail">
+                                <span>Order Number:</span>
+                                <strong>#YL12345678</strong>
+                            </div>
+                            <div class="order-detail">
+                                <span>Estimated Delivery:</span>
+                                <strong>Today, 15:30 - 16:00</strong>
+                            </div>
+                            <div class="order-detail">
+                                <span>Delivery Address:</span>
+                                <strong id="confirmation-address"></strong>
+                            </div>
+                            <div class="order-detail">
+                                <span>Payment Method:</span>
+                                <strong id="confirmation-payment"></strong>
+                            </div>
+                        </div>
+                        
+                        <p class="tracking-info">You will receive an SMS with tracking information shortly.</p>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button class="primary-btn" id="close-confirmation" type="button">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="login-modal" aria-labelledby="login-title" aria-modal="true" role="dialog" hidden>
+        <div class="modal-content">
+          <button class="close-modal" id="close-modal" aria-label="Close">&times;</button>
+          <h3 class="modal-title" id="login-title">Sign In</h3>
+          <form class="login-form" action="/api/login" method="post">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+              <a href="/pages/forgot-password.html" class="forgot-password">Forgot password?</a>
+            </div>
+            <button type="submit" class="login-btn">Sign In</button>
+          </form>
+          <div class="login-options">
+            <p>Or sign in with</p>
+            <div class="social-login">
+              <button class="social-login-btn" aria-label="Sign in with Facebook"><i class="fab fa-facebook-f"></i></button>
+              <button class="social-login-btn" aria-label="Sign in with Google"><i class="fab fa-google"></i></button>
+              <button class="social-login-btn" aria-label="Sign in with LinkedIn"><i class="fab fa-linkedin-in"></i></button>
+            </div>
+          </div>
+          <a href="/pages/register.html" class="register-link">Don't have an account? Sign up</a>
+        </div>
+      </div>
+    
+      <script src="../js/modal.js"></script>
+      <script src="../js/navigation.js"></script>
+      <!-- <script src="../js/shopping-list.js"></script> -->
+      <script src="../js/shopping-list.js"></script>
+    </body>
+    </html>

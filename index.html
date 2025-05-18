@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maeda Recipe Manager</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Maeda Recipe Manager - AI-powered recipe suggestions based on ingredients you already have" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <h1>Maeda</h1>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" aria-current="page"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="pages/uzbek.html"><i class="fas fa-globe-asia"></i> Uzbek Cuisine</a></li>
+      <li><a href="pages/european.html"><i class="fas fa-globe-europe"></i> European Cuisine</a></li>
+      <li><a href="pages/shopping-list.html"><i class="fas fa-shopping-basket"></i> Shopping List</a></li>
+      <li><a href="pages/video-tutorials.html"><i class="fas fa-play-circle"></i> Video Tutorials</a></li>
+    </ul>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search recipes..." aria-label="Search recipes" />
+      <button aria-label="Search"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="user-controls">
+      <button class="sign-in-btn" id="sign-in-btn">Sign In</button>
+      <button class="sign-up-btn" id="sign-up-btn">Sign Up</button>
+    </div>
+  </nav>
+    
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Cook with What You Have</h2>
+        <p>Discover delicious recipes based on ingredients already in your kitchen. Powered by AI, personalized for you.</p>
+        <button class="hero-btn">Find Recipes Now</button>
+      </div>
+    </section>
+    
+    <section class="ingredient-search">
+      <div class="container">
+        <div class="search-container">
+          <h2 class="section-title">What's in Your Kitchen?</h2>
+          <p class="section-subtitle">Enter ingredients you have and we'll suggest perfect recipes</p>
+          <div class="ingredient-search-box">
+            <div class="ingredient-tags">
+              <span class="ingredient-tag">Chicken <button class="remove-tag" aria-label="Remove chicken"><i class="fas fa-times"></i></button></span>
+              <span class="ingredient-tag">Pasta <button class="remove-tag" aria-label="Remove pasta"><i class="fas fa-times"></i></button></span>
+              <span class="ingredient-tag">Tomatoes <button class="remove-tag" aria-label="Remove tomatoes"><i class="fas fa-times"></i></button></span>
+            </div>
+            <div class="ingredient-input-wrapper">
+              <input type="text" placeholder="Add ingredient..." class="ingredient-input" aria-label="Add ingredient">
+              <button class="add-ingredient-btn" aria-label="Add ingredient"><i class="fas fa-plus"></i></button>
+            </div>
+            <button class="btn btn-primary search-recipes-btn">Find Recipes</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="features">
+      <div class="section-title">
+        <h3>Key Features</h3>
+      </div>
+      <div class="features-container">
+        <div class="feature-card">
+          <div class="feature-icon">🥕</div>
+          <h4>Cook with Available Ingredients</h4>
+          <p>Enter what's in your kitchen and get personalized recipe suggestions. No more last-minute grocery runs!</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h4>AI-Driven Recipe Management</h4>
+          <p>Our smart system learns your preferences and dietary needs to recommend recipes you'll love.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🍳</div>
+          <h4>Live Sessions with Professionals</h4>
+          <p>Join live cooking sessions with culinary experts and learn professional techniques.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="recipe-categories">
+      <div class="section-title">
+        <h3>Recipe Categories</h3>
+      </div>
+      <div class="categories-container">
+        <div class="category-card">
+          <img src="images/quick-meals.jpg" alt="Quick Meals">
+          <div class="category-name">Quick Meals</div>
+        </div>
+        <div class="category-card">
+          <img src="images/vegetarian.jpg" alt="Vegetarian">
+          <div class="category-name">Vegetarian</div>
+        </div>
+        <div class="category-card">
+          <img src="images/desserts.jpg" alt="Desserts">
+          <div class="category-name">Desserts</div>
+        </div>
+        <div class="category-card">
+          <img src="images/healthy.jpg" alt="Healthy">
+          <div class="category-name">Healthy</div>
+        </div>
+        <div class="category-card">
+          <img src="images/budget.jpg" alt="Budget-Friendly">
+          <div class="category-name">Budget-Friendly</div>
+        </div>
+        <div class="category-card">
+          <img src="images/one-pot.jpg" alt="One-Pot Meals">
+          <div class="category-name">One-Pot Meals</div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cultural-pages">
+      <div class="section-title">
+        <h3>Explore Culinary Traditions</h3>
+      </div>
+      <div class="cultural-container">
+        <div class="cultural-card">
+          <img src="images/uzbek-cuisine.jpg" alt="Uzbek Cuisine">
+          <div class="cultural-content">
+            <h4>Uzbek Cuisine</h4>
+            <p>Discover the rich flavors and traditional recipes from Uzbekistan. From pilaf to samsa, explore authentic Central Asian cooking.</p>
+            <a href="pages/uzbek.html" class="explore-btn" id="explore-uzbek">Explore Uzbek Recipes</a>
+          </div>
+        </div>
+        <div class="cultural-card">
+          <img src="images/european-cuisine.jpg" alt="European Cuisine">
+          <div class="cultural-content">
+            <h4>European Cuisine</h4>
+            <p>Journey through Europe's diverse culinary landscape. From Italian pasta to French pastries, experience Europe's finest dishes.</p>
+            <a href="pages/european.html" class="explore-btn" id="explore-european">Explore European Recipes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="ai-features">
+      <div class="section-title">
+        <h3>Smart Cooking with AI</h3>
+      </div>
+      <div class="ai-container">
+        <div class="ai-feature">
+          <div class="ai-img" aria-hidden="true"></div>
+          <div class="ai-content">
+            <h4>Personalized Recipe Recommendations</h4>
+            <p>Our AI analyzes your cooking habits, dietary preferences, and past ratings to suggest recipes you'll love. The more you use Maeda, the better it gets at knowing your taste.</p>
+          </div>
+        </div>
+        <div class="ai-feature">
+          <div class="ai-img" aria-hidden="true"></div>
+          <div class="ai-content">
+            <h4>Intelligent Ingredient Substitutions</h4>
+            <p>Don't have an ingredient? Our AI suggests the best substitutions based on flavor profiles and cooking properties, ensuring your dish still tastes great.</p>
+          </div>
+        </div>
+        <div class="ai-feature">
+          <div class="ai-img" aria-hidden="true"></div>
+          <div class="ai-content">
+            <h4>Smart Meal Planning</h4>
+            <p>Let AI create balanced weekly meal plans that match your nutritional goals, available cooking time, and ingredient preferences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="live-sessions">
+      <div class="section-title">
+        <h3>Upcoming Live Sessions</h3>
+      </div>
+      <div class="session-cards">
+        <div class="session-card">
+          <div class="session-img">
+            <img src="images/italian-pasta.jpg" alt="Italian Pasta Masterclass">
+            <div class="live-badge">LIVE SOON</div>
+          </div>
+          <div class="session-details">
+            <h4>Italian Pasta Masterclass</h4>
+            <div class="chef-info">
+              <img src="images/chef-marco.jpg" alt="Chef Marco Rossi" class="chef-avatar">
+              <span class="chef-name">Chef Marco Rossi</span>
+            </div>
+            <div class="session-time">May 15, 2025 • 7:00 PM</div>
+            <button class="join-btn">Join Session</button>
+          </div>
+        </div>
+        <div class="session-card">
+          <div class="session-img">
+            <img src="images/vegan-baking.jpg" alt="Vegan Baking Essentials">
+            <div class="live-badge">LIVE SOON</div>
+          </div>
+          <div class="session-details">
+            <h4>Vegan Baking Essentials</h4>
+            <div class="chef-info">
+              <img src="images/chef-sarah.jpg" alt="Chef Sarah Green" class="chef-avatar">
+              <span class="chef-name">Chef Sarah Green</span>
+            </div>
+            <div class="session-time">May 17, 2025 • 6:30 PM</div>
+            <button class="join-btn">Join Session</button>
+          </div>
+        </div>
+        <div class="session-card">
+          <div class="session-img">
+            <img src="images/asian-food.jpg" alt="Asian Street Food">
+            <div class="live-badge">LIVE SOON</div>
+          </div>
+          <div class="session-details">
+            <h4>Asian Street Food at Home</h4>
+            <div class="chef-info">
+              <img src="images/chef-lin.jpg" alt="Chef Lin Zhang" class="chef-avatar">
+              <span class="chef-name">Chef Lin Zhang</span>
+            </div>
+            <div class="session-time">May 20, 2025 • 8:00 PM</div>
+            <button class="join-btn">Join Session</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h5>About Maeda</h5>
+        <ul class="footer-links">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul class="footer-links">
+          <li><a href="#">Recipe Collections</a></li>
+          <li><a href="#">Seasonal Favorites</a></li>
+          <li><a href="#">Cooking Tips</a></li>
+          <li><a href="#">Ingredient Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul class="footer-links">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect with Us</h5>
+        <p>Join our community and get the latest recipes and cooking tips.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 Maeda Recipe Manager. All rights reserved.
+    </div>
+  </footer>
+    
+  <div class="auth-modal" id="auth-modal" aria-hidden="true">
+    <div class="auth-modal-content" role="dialog">
+      <span class="close-modal" id="close-modal" aria-label="Close">&times;</span>
+      
+      <!-- Sign In Form -->
+      <div class="auth-form-container" id="signin-container">
+        <h3 class="modal-title">Sign In</h3>
+        <form class="auth-form" id="signin-form">
+          <div class="form-group">
+            <label for="signin-email">Email Address</label>
+            <input type="email" id="signin-email" placeholder="Enter your email" required>
+            <span class="error-message" id="signin-email-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="signin-password">Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="signin-password" placeholder="Enter your password" required>
+              <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <span class="error-message" id="signin-password-error"></span>
+          </div>
+          <div class="form-group remember-forgot">
+            <div class="remember-me">
+              <input type="checkbox" id="remember-me">
+              <label for="remember-me">Remember me</label>
+            </div>
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+          <button type="submit" class="auth-btn">Sign In</button>
+        </form>
+        <div class="auth-separator">
+          <span>OR</span>
+        </div>
+        <div class="auth-switch">
+          <p>Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+        </div>
+      </div>
+      
+      <div class="auth-form-container" id="signup-container" style="display: none;">
+        <h3 class="modal-title">Create Account</h3>
+        <form class="auth-form" id="signup-form">
+          <div class="form-group">
+            <label for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" placeholder="Enter your full name" required>
+            <span class="error-message" id="signup-name-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email Address</label>
+            <input type="email" id="signup-email" placeholder="Enter your email" required>
+            <span class="error-message" id="signup-email-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="signup-password" placeholder="Create a password" required>
+              <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <span class="error-message" id="signup-password-error"></span>
+            <div class="password-strength">
+              <div class="strength-meter">
+                <div class="strength-bar" id="password-strength-bar"></div>
+              </div>
+              <span class="strength-text" id="password-strength-text">Password strength</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="terms-agreement">
+              <input type="checkbox" id="terms-agree" required>
+              <label for="terms-agree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            <span class="error-message" id="terms-error"></span>
+          </div>
+          <button type="submit" class="auth-btn">Create Account</button>
+        </form>
+        <div class="auth-separator">
+          <span>OR</span>
+        </div>
+        <div class="auth-switch">
+          <p>Already have an account? <a href="#" id="switch-to-signin">Sign in</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="notification"></div>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>

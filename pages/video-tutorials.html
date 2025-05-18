@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Tutorials - Maeda Recipe Manager</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/pages/video-tutorials.css" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Learn from expert chefs with step-by-step video tutorials at Maeda Recipe Manager" />
+  <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://www.youtube.com https://youtube.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <h1>Maeda</h1>
+    </div>
+        
+    <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html" id="home-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="uzbek.html" id="uzbek-link"><i class="fas fa-globe-asia"></i> Uzbek Cuisine</a></li>
+        <li><a href="european.html" id="european-link"><i class="fas fa-globe-europe"></i> European Cuisine</a></li>
+        <li><a href="shopping-list.html" id="shopping-link"><i class="fas fa-shopping-basket"></i> Shopping List</a></li>
+        <li><a href="video-tutorials.html" id="videos-link" aria-current="page"><i class="fas fa-play-circle"></i> Video Tutorials</a></li>
+      </ul>
+  
+      <div class="search-box">
+        <input type="text" placeholder="Search videos..." aria-label="Search videos" />
+        <button aria-label="Search">🔍</button>
+      </div>
+  
+      <div class="user-controls">
+        <button class="sign-in-btn" id="sign-in-btn">Sign In</button>
+        <button class="sign-up-btn">Sign Up</button>
+      </div>
+    </nav>
+
+    <main>
+        <section class="video-hero">
+            <div class="video-hero-content">
+                <h1>Master the Art of Cooking</h1>
+                <p>Learn from expert chefs with our step-by-step video tutorials</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Video Tutorials</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Master Chefs</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Cuisine Types</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="primary-btn">Start Learning</button>
+                    <button class="secondary-btn">Browse Categories</button>
+                </div>
+            </div>
+            <div class="video-hero-featured">
+                <div class="featured-video-wrapper" data-video-id="Tb1hETcb6oY">
+                    <img src="https://img.youtube.com/vi/Tb1hETcb6oY/maxresdefault.jpg" alt="Uzbek Plov Masterclass" class="featured-thumbnail">
+                    <div class="play-button">▶</div>
+                    <div class="featured-info">
+                        <span class="featured-tag">Featured</span>
+                        <h3>Uzbek Plov Masterclass</h3>
+                        <p>Learn the authentic technique from Chef Alisher</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-filters">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <h3>Meal Type</h3>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+                        <button class="filter-btn" data-filter="lunch">Lunch</button>
+                        <button class="filter-btn" data-filter="dinner">Dinner</button>
+                        <button class="filter-btn" data-filter="dessert">Desserts</button>
+                        <button class="filter-btn" data-filter="snack">Snacks</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>Cuisine</h3>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-cuisine="all">All</button>
+                        <button class="filter-btn" data-cuisine="uzbek">Uzbek</button>
+                        <button class="filter-btn" data-cuisine="european">European</button>
+                        <button class="filter-btn" data-cuisine="asian">Asian</button>
+                        <button class="filter-btn" data-cuisine="mediterranean">Mediterranean</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>Difficulty</h3>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-difficulty="all">All</button>
+                        <button class="filter-btn" data-difficulty="beginner">Beginner</button>
+                        <button class="filter-btn" data-difficulty="intermediate">Intermediate</button>
+                        <button class="filter-btn" data-difficulty="advanced">Advanced</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>Duration</h3>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-duration="all">All</button>
+                        <button class="filter-btn" data-duration="short">Under 15 min</button>
+                        <button class="filter-btn" data-duration="medium">15-30 min</button>
+                        <button class="filter-btn" data-duration="long">Over 30 min</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="active-filters">
+                <span class="active-filter-label">Active Filters:</span>
+                <div class="active-filter-tags" aria-live="polite">
+                    <span class="filter-tag">All Meal Types <button class="remove-filter" aria-label="Remove meal type filter">×</button></span>
+                    <span class="filter-tag">All Cuisines <button class="remove-filter" aria-label="Remove cuisine filter">×</button></span>
+                    <span class="filter-tag">All Difficulties <button class="remove-filter" aria-label="Remove difficulty filter">×</button></span>
+                    <span class="filter-tag">All Durations <button class="remove-filter" aria-label="Remove duration filter">×</button></span>
+                </div>
+                <button class="clear-filters">Clear All</button>
+            </div>
+        </section>
+
+        <section class="video-collections">
+            <div class="video-collection">
+                <div class="collection-header">
+                    <h2>Featured Tutorials</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                
+                <div class="video-grid">
+                    <article class="video-card" data-filter="dinner" data-cuisine="uzbek" data-difficulty="intermediate" data-duration="long">
+                        <div class="video-thumbnail" data-video-id="mhAO4P5QHZA">
+                            <img src="https://img.youtube.com/vi/mhAO4P5QHZA/maxresdefault.jpg" alt="Traditional Uzbek Plov" class="thumbnail-img">
+                            <div class="play-overlay">▶</div>
+                            <span class="video-duration">28:45</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tags">
+                                <span class="video-tag">Uzbek</span>
+                                <span class="video-tag">Dinner</span>
+                            </div>
+                            <h3 class="video-title">Traditional Uzbek Plov</h3>
+                            <p class="video-description">Learn how to make the perfect Uzbek plov with tender lamb and aromatic rice.</p>
+                            <div class="video-meta">
+                                <div class="chef-info">
+                                    <img src="../images/chefs/chef-alisher.jpg" alt="Chef Alisher" class="chef-avatar" loading="lazy">
+                                    <span class="chef-name">Chef Alisher</span>
+                                </div>
+                                <div class="video-stats">
+                                    <span class="views-count">12.5K views</span>
+                                    <span class="rating">4.9 ★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="video-card" data-filter="breakfast" data-cuisine="european" data-difficulty="beginner" data-duration="short">
+                        <div class="video-thumbnail" data-video-id="1nqpTkHpYyE">
+                            <img src="https://img.youtube.com/vi/1nqpTkHpYyE/maxresdefault.jpg" alt="Perfect French Toast" class="thumbnail-img">
+                            <div class="play-overlay">▶</div>
+                            <span class="video-duration">12:20</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tags">
+                                <span class="video-tag">European</span>
+                                <span class="video-tag">Breakfast</span>
+                            </div>
+                            <h3 class="video-title">Perfect French Toast</h3>
+                            <p class="video-description">Quick and easy French toast with a crispy exterior and fluffy interior.</p>
+                            <div class="video-meta">
+                                <div class="chef-info">
+                                    <img src="../images/chefs/chef-marie.jpg" alt="Chef Marie" class="chef-avatar" loading="lazy">
+                                    <span class="chef-name">Chef Marie</span>
+                                </div>
+                                <div class="video-stats">
+                                    <span class="views-count">8.7K views</span>
+                                    <span class="rating">4.7 ★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="video-card" data-filter="dessert" data-cuisine="european" data-difficulty="intermediate" data-duration="medium">
+                        <div class="video-thumbnail" data-video-id="wtt60PcEWX4">
+                            <img src="https://img.youtube.com/vi/wtt60PcEWX4/maxresdefault.jpg" alt="Classic Italian Tiramisu" class="thumbnail-img">
+                            <div class="play-overlay">▶</div>
+                            <span class="video-duration">18:35</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tags">
+                                <span class="video-tag">European</span>
+                                <span class="video-tag">Dessert</span>
+                            </div>
+                            <h3 class="video-title">Classic Italian Tiramisu</h3>
+                            <p class="video-description">Create this elegant Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.</p>
+                            <div class="video-meta">
+                                <div class="chef-info">
+                                    <img src="../images/chefs/chef-marco.jpg" alt="Chef Marco" class="chef-avatar" loading="lazy">
+                                    <span class="chef-name">Chef Marco</span>
+                                </div>
+                                <div class="video-stats">
+                                    <span class="views-count">15.3K views</span>
+                                    <span class="rating">4.8 ★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="video-card" data-filter="dinner" data-cuisine="asian" data-difficulty="advanced" data-duration="long">
+                        <div class="video-thumbnail" data-video-id="nIoOv6lWYnk">
+                            <img src="https://img.youtube.com/vi/nIoOv6lWYnk/maxresdefault.jpg" alt="Homemade Sushi Masterclass" class="thumbnail-img">
+                            <div class="play-overlay">▶</div>
+                            <span class="video-duration">35:12</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tags">
+                                <span class="video-tag">Asian</span>
+                                <span class="video-tag">Dinner</span>
+                            </div>
+                            <h3 class="video-title">Homemade Sushi Masterclass</h3>
+                            <p class="video-description">Master the art of making restaurant-quality sushi rolls at home.</p>
+                            <div class="video-meta">
+                                <div class="chef-info">
+                                    <img src="../images/chefs/chef-yuki.jpg" alt="Chef Yuki" class="chef-avatar" loading="lazy">
+                                    <span class="chef-name">Chef Yuki</span>
+                                </div>
+                                <div class="video-stats">
+                                    <span class="views-count">22.1K views</span>
+                                    <span class="rating">4.9 ★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            
+            <div class="video-collection">
+                <div class="collection-header">
+                    <h2>Breakfast Recipes</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                
+                <div class="video-grid">
+                    <article class="video-card" data-filter="breakfast" data-cuisine="uzbek" data-difficulty="beginner" data-duration="short">
+                        <div class="video-thumbnail" data-video-id="nIoOv6lWYnk">
+                            <img src="https://img.youtube.com/vi/nIoOv6lWYnk/maxresdefault.jpg" alt="Traditional Uzbek Breakfast" class="thumbnail-img">
+                            <div class="play-overlay">▶</div>OuNf8kafRDc
+                            <span class="video-duration">10:15</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tags">
+                                <span class="video-tag">Uzbek</span>
+                                <span class="video-tag">Breakfast</span>
+                            </div>
+                            <h3 class="video-title">Traditional Uzbek Breakfast</h3>
+                            <p class="video-description">Learn to prepare a traditional Uzbek breakfast with non bread and kaymak.</p>
+                            <div class="video-meta">
+                                <div class="chef-info">
+                                    <img src="../images/chefs/chef-nodira.jpg" alt="Chef Nodira" class="chef-avatar" loading="lazy">
+                                    <span class="chef-name">Chef Nodira</span>
+                                </div>
+                                <div class="video-stats">
+                                    <span class="views-count">7.2K views</span>
+                                    <span class="rating">4.6 ★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="video-card" data-filter="breakfast" data-cuisine="european" data-difficulty="beginner" data-duration="short">
+                        <div class="video-thumbnail" data-video-id="KN_aaM6SKoo">
+                            <img src="https://img.youtube.com/vi/KN_aaM6SKoo/maxresdefault.jpg" alt="Perfect Avocado Toast" class="thumbnail-img">
+                            <div class="play-overlay">▶</div>
+                            <span class="video-duration">8:45</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tags">
+                                <span class="video-tag">European</span>
+                                <span class="video-tag">Breakfast</span>
+                            </div>
+                            <h3 class="video-title">Perfect Avocado Toast</h3>
+                            <p class="video-description">Create the perfect avocado toast with poached eggs and microgreens.</p>
+                            <div class="video-meta">
+                                <div class="chef-info">
+                                    <img src="../images/chefs/chef-emma.jpg" alt="Chef Emma" class="chef-avatar" loading="lazy">
+                                    <span class="chef-name">Chef Emma</span>
+                                </div>
+                                <div class="video-stats">
+                                    <span class="views-count">9.8K views</span>
+                                    <span class="rating">4.7 ★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="video-card" data-filter="breakfast" data-cuisine="mediterranean" data-difficulty="intermediate" data-duration="medium">
+                        <div class="video-thumbnail" data-video-id="618QsMaVXp8">
+                            <img src="https://img.youtube.com/vi/618QsMaVXp8/maxresdefault.jpg" alt="Spicy Shakshuka" class="thumbnail-img">
+                            <div class="play-overlay">▶</div>
+                            <span class="video-duration">15:30</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tags">
+                                <span class="video-tag">Mediterranean</span>
+                                <span class="video-tag">Breakfast</span>
+                            </div>
+                            <h3 class="video-title">Spicy Shakshuka</h3>
+                            <p class="video-description">Make this flavorful Mediterranean breakfast with eggs poached in a spicy tomato sauce.</p>
+                            <div class="video-meta">
+                                <div class="chef-info">
+                                    <img src="../images/chefs/chef-amir.jpg" alt="Chef Amir" class="chef-avatar" loading="lazy">
+                                    <span class="chef-name">Chef Amir</span>
+                                </div>
+                                <div class="video-stats">
+                                    <span class="views-count">11.4K views</span>
+                                    <span class="rating">4.8 ★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="video-card" data-filter="breakfast" data-cuisine="asian" data-difficulty="beginner" data-duration="medium">
+                        <div class="video-thumbnail" data-video-id="SrnBalc6m5w">
+                            <img src="https://img.youtube.com/vi/SrnBalc6m5w/maxresdefault.jpg" alt="Comforting Rice Congee" class="thumbnail-img">
+                            <div class="play-overlay">▶</div>
+                            <span class="video-duration">14:20</span>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tags">
+                                <span class="video-tag">Asian</span>
+                                <span class="video-tag">Breakfast</span>
+                            </div>
+                            <h3 class="video-title">Comforting Rice Congee</h3>
+                            <p class="video-description">Learn to make this soothing Asian rice porridge with various toppings.</p>
+                            <div class="video-meta">
+                                <div class="chef-info">
+                                    <img src="../images/chefs/chef-lin.jpg" alt="Chef Lin" class="chef-avatar" loading="lazy">
+                                    <span class="chef-name">Chef Lin</span>
+                                </div>
+                                <div class="video-stats">
+                                    <span class="views-count">8.3K views</span>
+                                    <span class="rating">4.5 ★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            
+        </section>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h5>About Maeda</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Explore</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Recipe Collections</a></li>
+                        <li><a href="#">Seasonal Favorites</a></li>
+                        <li><a href="#">Cooking Tips</a></li>
+                        <li><a href="#">Ingredient Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect with Us</h5>
+                    <p>Join our community and get the latest recipes and cooking tips.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Maeda Recipe Manager. All rights reserved.
+            </div>
+        </footer>
+
+        <div id="video-modal" class="video-modal" aria-hidden="true">
+            <div class="video-modal-content">
+                <button class="close-video-modal" aria-label="Close video">&times;</button>
+                <div class="video-player-container">
+                    <div class="video-player">
+                        <iframe id="video-iframe" src="" title="Video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-player-info">
+                        <h2 id="modal-video-title">Video Title</h2>
+                        <div class="video-player-meta">
+                            <div class="chef-info">
+                                <img id="modal-chef-img" src="" alt="Chef" class="chef-avatar">
+                                <span id="modal-chef-name">Chef Name</span>
+                            </div>
+                            <div class="video-stats">
+                                <span id="modal-views">0 views</span>
+                                <span id="modal-rating">0.0 ★</span>
+                            </div>
+                        </div>
+                        <p id="modal-video-description">Video description goes here.</p>
+                        <div class="video-actions">
+                            <button class="action-btn">
+                                <span class="action-icon">👍</span> Like
+                            </button>
+                            <button class="action-btn">
+                                <span class="action-icon">💾</span> Save
+                            </button>
+                            <button class="action-btn">
+                                <span class="action-icon">🔗</span> Share
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-ingredients">
+                        <h3>Ingredients</h3>
+                        <ul id="modal-ingredients">
+                        </ul>
+                        <button class="add-to-shopping-list">Add All to Shopping List</button>
+                    </div>
+                    <div class="video-comments">
+                        <h3>Comments</h3>
+                        <div class="comment-form">
+                            <img src="../images/users/default-user.jpg" alt="User" class="user-avatar">
+                            <input type="text" placeholder="Add a comment...">
+                            <button>Comment</button>
+                        </div>
+                        <div class="comments-list">
+                        </div>
+                        <button class="load-more-comments">Load More Comments</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+    
+    <script src="../js/modal.js"></script>
+    <script src="../js/video-tutorials.js"></script>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Explore European cuisines from Italian to Scandinavian with authentic recipes and cooking guides." />
+    <title>European Cuisine - Maeda Recipe Manager</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/pages/european.css" />
+    <link rel="icon" href="..../images/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta property="og:title" content="European Cuisine - Maeda Recipe Manager" />
+    <meta property="og:description"
+        content="Explore European cuisines from Italian to Scandinavian with authentic recipes and cooking guides." />
+    <meta property="og:image" content="..../images/og-european-cuisine.jpg" />
+    <meta property="og:url" content="https://maeda.com/pages/european.html" />
+    <link rel="stylesheet" href="../css/pages/european-modal.css">
+</head>
+<script src="../js/european-js.js"></script>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Maeda</h1>
+        </div>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+            <span class="menu-icon"></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="../index.html" id="home-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="uzbek.html" id="uzbek-link"><i class="fas fa-globe-asia"></i> Uzbek Cuisine</a></li>
+            <li><a href="european.html" id="european-link" aria-current="page"><i class="fas fa-globe-europe"></i>
+                    European Cuisine</a></li>
+            <li><a href="shopping-list.html" id="shopping-link"><i class="fas fa-shopping-basket"></i> Shopping List</a>
+            </li>
+            <li><a href="video-tutorials.html" id="videos-link"><i class="fas fa-play-circle"></i> Video Tutorials</a>
+            </li>
+        </ul>
+
+        <div class="search-box">
+            <form action="/pages/search-results.html" method="get">
+                <label for="search" class="visually-hidden">Search recipes</label>
+                <input type="text" id="search" name="q" placeholder="Search recipes..." aria-label="Search recipes" />
+                <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
+        <div class="user-controls">
+            <button class="sign-in-btn" id="sign-in-btn" aria-haspopup="dialog"><i class="fas fa-sign-in-alt"></i> Sign
+                In</button>
+            <button class="sign-up-btn" onclick="location.href='../pages/register.html'"><i
+                    class="fas fa-user-plus"></i> Sign Up</button>
+        </div>
+    </nav>
+
+    <main>
+        <div id="european-page">
+            <header class="european-header">
+                <div class="eu-header-content">
+                    <h1>European Cuisine</h1>
+                    <p>Journey through the diverse culinary landscape of Europe, from the Mediterranean shores to the
+                        Nordic fjords.</p>
+                    <div class="eu-header-actions">
+                        <button class="eu-header-btn primary"><i class="fas fa-book"></i> Browse All Recipes</button>
+                        <button class="eu-header-btn secondary"><i class="fas fa-info-circle"></i> Learn About European
+                            Food</button>
+                    </div>
+                </div>
+            </header>
+
+            <section class="european-regions" aria-labelledby="regions-heading">
+                <div class="section-title">
+                    <h2 id="regions-heading">Explore by Region</h2>
+                    <p>Discover authentic recipes from different European culinary traditions</p>
+                </div>
+                <div class="regions-container">
+                    <a href="/pages/regions/italian.html" class="region-card">
+                        <div class="region-image-container">
+                            <img src="../images/regions/italian.jpg" alt="Italian cuisine featuring pasta and pizza"
+                                width="180" height="100" loading="lazy">
+                        </div>
+                        <div class="region-name">Italian</div>
+                        <div class="region-info">120+ recipes</div>
+                    </a>
+                    <a href="/pages/regions/french.html" class="region-card">
+                        <div class="region-image-container">
+                            <img src="../images/regions/french.jpg" alt="French cuisine featuring pastries and cheese"
+                                width="180" height="100" loading="lazy">
+                        </div>
+                        <div class="region-name">French</div>
+                        <div class="region-info">95+ recipes</div>
+                    </a>
+                    <a href="/pages/regions/spanish.html" class="region-card">
+                        <div class="region-image-container">
+                            <img src="../images/regions/spanish.jpg" alt="Spanish cuisine featuring paella and tapas"
+                                width="180" height="100" loading="lazy">
+                        </div>
+                        <div class="region-name">Spanish</div>
+                        <div class="region-info">80+ recipes</div>
+                    </a>
+                    <a href="/pages/regions/greek.html" class="region-card">
+                        <div class="region-image-container">
+                            <img src="../images/regions/greek.jpg" alt="Greek cuisine featuring Mediterranean dishes"
+                                width="180" height="100" loading="lazy">
+                        </div>
+                        <div class="region-name">Greek</div>
+                        <div class="region-info">75+ recipes</div>
+                    </a>
+                    <a href="/pages/regions/german.html" class="region-card">
+                        <div class="region-image-container">
+                            <img src="../images/regions/german.jpg" alt="German cuisine featuring sausages and pretzels"
+                                width="180" height="100" loading="lazy">
+                        </div>
+                        <div class="region-name">German</div>
+                        <div class="region-info">60+ recipes</div>
+                    </a>
+                    <a href="/pages/regions/scandinavian.html" class="region-card">
+                        <div class="region-image-container">
+                            <img src="../images/regions/scandinavian.jpg"
+                                alt="Scandinavian cuisine featuring Nordic dishes" width="180" height="100"
+                                loading="lazy">
+                        </div>
+                        <div class="region-name">Scandinavian</div>
+                        <div class="region-info">45+ recipes</div>
+                    </a>
+                    <a href="/pages/regions/eastern-european.html" class="region-card">
+                        <div class="region-image-container">
+                            <img src="../images/regions/eastern-european.jpg"
+                                alt="Eastern European cuisine featuring hearty dishes" width="180" height="100"
+                                loading="lazy">
+                        </div>
+                        <div class="region-name">Eastern European</div>
+                        <div class="region-info">70+ recipes</div>
+                    </a>
+                    <a href="/pages/regions/british.html" class="region-card">
+                        <div class="region-image-container">
+                            <img src="../images/regions/british.jpg" alt="British cuisine featuring traditional dishes"
+                                width="180" height="100" loading="lazy">
+                        </div>
+                        <div class="region-name">British</div>
+                        <div class="region-info">55+ recipes</div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="featured-european" aria-labelledby="featured-heading">
+                <div class="featured-container">
+                    <div class="section-title">
+                        <h2 id="featured-heading">Featured Recipes</h2>
+                        <p>Handpicked European dishes that showcase the continent's culinary diversity</p>
+                        <div class="section-controls">
+                            <button class="view-all-btn">View All Recipes <i class="fas fa-arrow-right"></i></button>
+                            <div class="slider-dots">
+                                <button class="dot active" aria-label="Show slide 1"></button>
+                                <button class="dot" aria-label="Show slide 2"></button>
+                                <button class="dot" aria-label="Show slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eu-recipe-slider" role="region" aria-label="Recipe carousel">
+                        <button class="slider-control prev" aria-label="Previous recipes"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <div class="slider-container">
+                            <div class="eu-recipe-card">
+                                <div class="eu-recipe-img">
+                                    <img src="../images/recipes/carbonara.jpg" alt="Italian Carbonara pasta dish"
+                                        width="350" height="200" loading="lazy">
+                                    <div class="eu-recipe-badge">Italian</div>
+                                </div>
+                                <div class="eu-recipe-content">
+                                    <h3>Classic Italian Carbonara</h3>
+                                    <div class="eu-recipe-info">
+                                        <span><i class="far fa-clock" aria-hidden="true"></i> 30 min</span>
+                                        <span><i class="fas fa-utensils" aria-hidden="true"></i> 4 servings</span>
+                                        <span><i class="fas fa-signal" aria-hidden="true"></i> Easy</span>
+                                    </div>
+                                    <p class="eu-recipe-desc">Authentic Roman pasta dish made with eggs, cheese,
+                                        pancetta, and black pepper.</p>
+                                    <div class="eu-recipe-actions">
+                                        <a href="/pages/recipes/carbonara.html" class="see-recipe">See Recipe</a>
+                                        <button class="save-recipe" aria-label="Save recipe"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eu-recipe-card">
+                                <div class="eu-recipe-img">
+                                    <img src="../images/recipes/ratatouille.jpg" alt="French Ratatouille vegetable stew"
+                                        width="350" height="200" loading="lazy">
+                                    <div class="eu-recipe-badge">French</div>
+                                    <div class="eu-recipe-badge vegetarian">Vegetarian</div>
+                                </div>
+                                <div class="eu-recipe-content">
+                                    <h3>Provençal Ratatouille</h3>
+                                    <div class="eu-recipe-info">
+                                        <span><i class="far fa-clock" aria-hidden="true"></i> 60 min</span>
+                                        <span><i class="fas fa-utensils" aria-hidden="true"></i> 6 servings</span>
+                                        <span><i class="fas fa-signal" aria-hidden="true"></i> Medium</span>
+                                    </div>
+                                    <p class="eu-recipe-desc">French vegetable stew featuring eggplant, zucchini,
+                                        peppers, and tomatoes.</p>
+                                    <div class="eu-recipe-actions">
+                                        <a href="/pages/recipes/ratatouille.html" class="see-recipe">See Recipe</a>
+                                        <button class="save-recipe" aria-label="Save recipe"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eu-recipe-card">
+                                <div class="eu-recipe-img">
+                                    <img src="../images/recipes/paella.jpg" alt="Spanish Seafood Paella" width="350"
+                                        height="200" loading="lazy">
+                                    <div class="eu-recipe-badge">Spanish</div>
+                                </div>
+                                <div class="eu-recipe-content">
+                                    <h3>Seafood Paella</h3>
+                                    <div class="eu-recipe-info">
+                                        <span><i class="far fa-clock" aria-hidden="true"></i> 45 min</span>
+                                        <span><i class="fas fa-utensils" aria-hidden="true"></i> 6 servings</span>
+                                        <span><i class="fas fa-signal" aria-hidden="true"></i> Medium</span>
+                                    </div>
+                                    <p class="eu-recipe-desc">Traditional Spanish rice dish with saffron, seafood, and
+                                        seasonal vegetables.</p>
+                                    <div class="eu-recipe-actions">
+                                        <a href="/pages/recipes/paella.html" class="see-recipe">See Recipe</a>
+                                        <button class="save-recipe" aria-label="Save recipe"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eu-recipe-card">
+                                <div class="eu-recipe-img">
+                                    <img src="../images/recipes/moussaka.jpg" alt="Greek Moussaka casserole" width="350"
+                                        height="200" loading="lazy">
+                                    <div class="eu-recipe-badge">Greek</div>
+                                </div>
+                                <div class="eu-recipe-content">
+                                    <h3>Greek Moussaka</h3>
+                                    <div class="eu-recipe-info">
+                                        <span><i class="far fa-clock" aria-hidden="true"></i> 90 min</span>
+                                        <span><i class="fas fa-utensils" aria-hidden="true"></i> 8 servings</span>
+                                        <span><i class="fas fa-signal" aria-hidden="true"></i> Advanced</span>
+                                    </div>
+                                    <p class="eu-recipe-desc">Layered casserole with eggplant, potatoes, spiced meat,
+                                        and béchamel sauce.</p>
+                                    <div class="eu-recipe-actions">
+                                        <a href="/pages/recipes/moussaka.html" class="see-recipe">See Recipe</a>
+                                        <button class="save-recipe" aria-label="Save recipe"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eu-recipe-card">
+                                <div class="eu-recipe-img">
+                                    <img src="../images/recipes/schnitzel.jpg" alt="German Wiener Schnitzel" width="350"
+                                        height="200" loading="lazy">
+                                    <div class="eu-recipe-badge">German</div>
+                                </div>
+                                <div class="eu-recipe-content">
+                                    <h3>Wiener Schnitzel</h3>
+                                    <div class="eu-recipe-info">
+                                        <span><i class="far fa-clock" aria-hidden="true"></i> 30 min</span>
+                                        <span><i class="fas fa-utensils" aria-hidden="true"></i> 4 servings</span>
+                                        <span><i class="fas fa-signal" aria-hidden="true"></i> Easy</span>
+                                    </div>
+                                    <p class="eu-recipe-desc">Thinly pounded veal cutlets, breaded and fried to golden
+                                        perfection.</p>
+                                    <div class="eu-recipe-actions">
+                                        <a href="/pages/recipes/schnitzel.html" class="see-recipe">See Recipe</a>
+                                        <button class="save-recipe" aria-label="Save recipe"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-control next" aria-label="Next recipes"><i
+                                class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="modal recipe-modal" id="recipe-modal" aria-hidden="true">
+                <div class="modal-content recipe-modal-content">
+                    <button class="close-modal" id="close-recipe-modal" aria-label="Close">&times;</button>
+                    <div class="recipe-modal-header">
+                        <h2 id="recipe-modal-title">Recipe Title</h2>
+                        <div class="recipe-modal-actions">
+                            <button class="action-btn" id="save-recipe-modal" aria-label="Save recipe"><i
+                                    class="far fa-heart"></i></button>
+                            <button class="action-btn" id="print-recipe" aria-label="Print recipe"><i
+                                    class="fas fa-print"></i></button>
+                            <button class="action-btn" id="share-recipe-modal" aria-label="Share recipe"><i
+                                    class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="recipe-modal-hero">
+                        <img id="recipe-modal-image" src="" alt="Recipe Image">
+                    </div>
+
+                    <div class="recipe-modal-info">
+                        <div class="info-badge"><i class="fas fa-signal"></i> <span id="recipe-difficulty">Medium</span>
+                        </div>
+                        <div class="info-badge"><i class="far fa-clock"></i> <span id="recipe-time">30 min</span></div>
+                        <div class="info-badge"><i class="fas fa-fire"></i> <span id="recipe-calories">450 cal</span>
+                        </div>
+                        <div class="info-badge"><i class="fas fa-user-friends"></i> <span id="recipe-servings">4
+                                servings</span></div>
+                    </div>
+
+                    <div class="recipe-modal-body">
+                        <div class="recipe-ingredients">
+                            <h3>Ingredients</h3>
+                            <ul id="recipe-ingredients-list"></ul>
+                            <button class="add-shopping-btn" id="add-to-shopping-list"><i
+                                    class="fas fa-shopping-basket"></i> Add All to Shopping List</button>
+                        </div>
+
+                        <div class="recipe-instructions">
+                            <h3>Instructions</h3>
+                            <ol id="recipe-instructions-list"></ol>
+                        </div>
+                    </div>
+
+                    <div class="recipe-tips-section">
+                        <h3>Chef's Tips</h3>
+                        <div class="tip-content" id="recipe-tips-text"></div>
+                    </div>
+
+                    <div class="recipe-nutrition">
+                        <h3>Nutrition Facts</h3>
+                        <div class="nutrition-grid" id="nutrition-facts"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="share-modal" aria-hidden="true">
+                <div class="modal-content share-modal-content">
+                    <button class="close-modal" id="close-share-modal" aria-label="Close">&times;</button>
+                    <h3 class="modal-title">Share</h3>
+                    <p class="share-text">Share this recipe with friends and family</p>
+                    <div class="share-options">
+                        <button class="share-option" id="share-facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                        <button class="share-option" id="share-twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </button>
+                        <button class="share-option" id="share-pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                            <span>Pinterest</span>
+                        </button>
+                        <button class="share-option" id="share-email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </button>
+                    </div>
+                    <div class="share-link-container">
+                        <input type="text" id="share-link" readonly>
+                        <button id="copy-link"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toast" id="toast">
+                <div class="toast-content">
+                    <i class="fas fa-check-circle toast-icon"></i>
+                    <div class="toast-message">Success! Your action has been completed.</div>
+                </div>
+                <button class="toast-close" id="toast-close">&times;</button>
+            </div>
+
+
+            <section class="european-categories">
+                <div class="section-title">
+                    <h2>Browse by Category</h2>
+                    <p>Find European recipes by meal type or dietary preference</p>
+                </div>
+                <div class="categories-grid">
+                    <a href="/pages/categories/appetizers.html" class="category-card">
+                        <div class="category-icon"><i class="fas fa-cheese"></i></div>
+                        <h3>Appetizers</h3>
+                        <p>Start your meal with European-style starters</p>
+                    </a>
+                    <a href="/pages/categories/main-courses.html" class="category-card">
+                        <div class="category-icon"><i class="fas fa-drumstick-bite"></i></div>
+                        <h3>Main Courses</h3>
+                        <p>Hearty dishes from across the continent</p>
+                    </a>
+                    <a href="/pages/categories/desserts.html" class="category-card">
+                        <div class="category-icon"><i class="fas fa-cookie"></i></div>
+                        <h3>Desserts</h3>
+                        <p>Sweet treats and pastries from Europe</p>
+                    </a>
+                    <a href="../pages/categories/breads.html" class="category-card">
+                        <div class="category-icon"><i class="fas fa-bread-slice"></i></div>
+                        <h3>Breads</h3>
+                        <p>Traditional European breads and pastries</p>
+                    </a>
+                    <a href="../pages/categories/vegetarian.html" class="category-card">
+                        <div class="category-icon"><i class="fas fa-carrot"></i></div>
+                        <h3>Vegetarian</h3>
+                        <p>Meat-free dishes with European flair</p>
+                    </a>
+                    <a href="../pages/categories/quick-meals.html" class="category-card">
+                        <div class="category-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Quick Meals</h3>
+                        <p>European recipes ready in 30 minutes or less</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="culinary-insights">
+                <div class="insights-container">
+                    <div class="insights-content">
+                        <h2>European Culinary Insights</h2>
+                        <p>European cuisine is characterized by its diversity, reflecting the continent's varied
+                            geography, climate, and cultural influences. From the olive oil-based Mediterranean diet to
+                            the hearty stews of Eastern Europe, each region offers distinct flavors and cooking
+                            techniques.</p>
+                        <p>The European approach to food often emphasizes fresh, seasonal ingredients and time-honored
+                            traditions passed down through generations. Many European dishes have become global
+                            favorites, showcasing the continent's significant contribution to world gastronomy.</p>
+                        <a href="../pages/articles/european-cuisine-history.html" class="insights-link">Learn more about
+                            European culinary history <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="insights-image">
+                        <img src="../images/european-cooking.jpg" alt="Chef preparing traditional European dishes"
+                            width="500" height="300" loading="lazy">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h5>About Maeda</h5>
+                <ul class="footer-links">
+                    <li><a href="../pages/about/story.html">Our Story</a></li>
+                    <li><a href="../pages/about/how-it-works.html">How It Works</a></li>
+                    <li><a href="../pages/about/careers.html">Careers</a></li>
+                    <li><a href="../pages/about/press.html">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Explore</h5>
+                <ul class="footer-links">
+                    <li><a href="../pages/collections.html">Recipe Collections</a></li>
+                    <li><a href="../pages/seasonal.html">Seasonal Favorites</a></li>
+                    <li><a href="../pages/tips.html">Cooking Tips</a></li>
+                    <li><a href="../pages/ingredients.html">Ingredient Guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul class="footer-links">
+                    <li><a href="../pages/support/help.html">Help Center</a></li>
+                    <li><a href="../pages/support/contact.html">Contact Us</a></li>
+                    <li><a href="../pages/support/privacy.html">Privacy Policy</a></li>
+                    <li><a href="../pages/support/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Connect with Us</h5>
+                <p>Join our community and get the latest recipes and cooking tips.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/maeda" class="social-btn" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/maeda" class="social-btn" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/maeda" class="social-btn" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/maeda" class="social-btn" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Maeda Recipe Manager. All rights reserved.
+        </div>
+    </footer>
+
+    <div class="" id="login-" aria-labelledby="-title" aria-="true" role="dialog" hidden>
+        <div class="-content">
+            <button class="close-" id="close-" aria-label="Close">&times;</button>
+            <h3 class="-title" id="-title">Sign In</h3>
+            <form class="login-form" action="../api/login" method="post">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required />
+                    <a href="../pages/forgot-password.html" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+            <div class="login-options">
+                <p>Or sign in with</p>
+                <div class="social-login">
+                    <button class="social-login-btn" aria-label="Sign in with Facebook"><i
+                            class="fab fa-facebook-f"></i></button>
+                    <button class="social-login-btn" aria-label="Sign in with Google"><i
+                            class="fab fa-google"></i></button>
+                    <button class="social-login-btn" aria-label="Sign in with LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></button>
+                </div>
+            </div>
+            <a href="../pages/register.html" class="register-link">Don't have an account? Sign up</a>
+        </div>
+    </div>
+
+    <script src="../js/.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/slider.js"></script>
+    <!-- <script src="../js/slider.js"></script> -->
+</body>
+
+</html>

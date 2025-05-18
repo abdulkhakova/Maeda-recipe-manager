@@ -1,0 +1,368 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #777;
+    border: none;
+    background: none;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--dark-color);
+    background-color: #f5f5f5;
+}
+
+.close-modal:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.modal-title {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--dark-color);
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.modal-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.1);
+}
+
+.form-group.error input {
+    border-color: #ff4747;
+}
+
+.form-group .error-message {
+    color: #ff4747;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.form-group.error .error-message {
+    display: block;
+}
+
+.form-group .input-icon {
+    position: absolute;
+    top: 38px;
+    right: 15px;
+    color: #aaa;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 38px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    padding: 0;
+}
+
+.password-toggle:hover,
+.password-toggle:focus {
+    color: var(--accent-color);
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-me input {
+    margin-right: 8px;
+    width: auto;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.forgot-password a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.forgot-password a:hover,
+.forgot-password a:focus {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+    background-color: #ca4d18;
+    outline: none;
+}
+
+.login-btn:focus {
+    box-shadow: 0 0 0 3px rgba(202, 77, 24, 0.3);
+}
+
+.login-btn:hover::before {
+    left: 100%;
+}
+
+.login-btn.loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.login-btn.loading .spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #eee;
+}
+
+.divider span {
+    padding: 0 15px;
+}
+
+.login-options {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    color: #555;
+}
+
+.social-login-btn:hover,
+.social-login-btn:focus {
+    background-color: #e0e0e0;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-login-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.social-login-btn.google {
+    color: #DB4437;
+}
+
+.social-login-btn.facebook {
+    color: #4267B2;
+}
+
+.social-login-btn.apple {
+    color: #000;
+}
+
+.register-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.register-link a:hover,
+.register-link a:focus {
+    text-decoration: underline;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 25px 20px;
+    }
+    
+    .modal-title {
+        font-size: 1.3rem;
+    }
+    
+    .form-group label {
+        font-size: 0.85rem;
+    }
+    
+    .social-login-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal,
+    .modal-content,
+    .login-btn,
+    .login-btn::before,
+    .social-login-btn {
+        transition: none;
+    }
+    
+    .login-btn:hover::before {
+        display: none;
+    }
+    
+    .login-btn.loading .spinner {
+        animation: none;
+    }
+}

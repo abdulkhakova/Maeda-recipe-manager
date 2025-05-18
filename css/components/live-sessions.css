@@ -1,0 +1,325 @@
+.live-sessions {
+    padding: 60px 30px;
+    background-color: white;
+}
+
+.session-cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.session-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+    position: relative;
+}
+
+.session-card:hover,
+.session-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.session-img {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.session-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.session-card:hover .session-img img {
+    transform: scale(1.05);
+}
+
+.live-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4747;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(255, 71, 71, 0.3);
+}
+
+/* Add pulsing dot for live indicator */
+.live-badge::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: pulse 1.5s infinite;
+}
+
+/* Add session category tag */
+.session-category {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.session-details {
+    padding: 25px;
+}
+
+.session-details h4 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    transition: color 0.3s;
+}
+
+.session-card:hover .session-details h4 {
+    color: var(--secondary-color);
+}
+
+.chef-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.chef-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 2px solid #f0f0f0;
+}
+
+.chef-name {
+    font-weight: 500;
+}
+
+/* Add chef title */
+.chef-title {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2px;
+}
+
+.session-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.session-time {
+    display: flex;
+    align-items: center;
+}
+
+.session-time::before {
+    content: '🕒';
+    margin-right: 5px;
+}
+
+/* Add difficulty level */
+.session-difficulty {
+    display: flex;
+    align-items: center;
+}
+
+.difficulty-dots {
+    display: inline-flex;
+    margin-left: 5px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-right: 3px;
+}
+
+.dot.active {
+    background-color: var(--secondary-color);
+}
+
+/* Add participants count */
+.session-participants {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.session-participants::before {
+    content: '👥';
+    margin-right: 5px;
+}
+
+.join-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.join-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s;
+}
+
+.join-btn:hover,
+.join-btn:focus {
+    background-color: #3b5434;
+    outline: none;
+}
+
+.join-btn:focus {
+    box-shadow: 0 0 0 3px rgba(59, 84, 52, 0.3);
+}
+
+.join-btn:hover::before {
+    left: 100%;
+}
+
+/* Add bookmark button */
+.bookmark-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.bookmark-btn::before {
+    content: '🔖';
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.bookmark-btn:hover::before,
+.bookmark-btn:focus::before {
+    opacity: 1;
+}
+
+.bookmark-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.bookmark-btn.active::before {
+    content: '📌';
+    opacity: 1;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 768px) {
+    .live-sessions {
+        padding: 40px 20px;
+    }
+    
+    .session-cards {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .session-img {
+        height: 180px;
+    }
+    
+    .session-details {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .session-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .session-img {
+        height: 200px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .session-card,
+    .session-img img,
+    .join-btn,
+    .join-btn::before {
+        transition: none;
+    }
+    
+    .live-badge::before {
+        animation: none;
+    }
+    
+    .session-card:hover {
+        transform: none;
+    }
+    
+    .session-card:hover .session-img img {
+        transform: none;
+    }
+}
