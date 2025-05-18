@@ -1,4 +1,6 @@
 Maeda Recipe Manager
+
+
 Maeda Recipe Manager is a modern, AI-powered recipe management system designed to revolutionize the cooking experience. The platform combines artificial intelligence with culinary expertise to help users discover, plan, and prepare meals using ingredients they already have at home.
 Key Features
 AI-Powered Recipe Solutions
