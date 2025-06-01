@@ -275,7 +275,7 @@
     <div class="auth-modal-content" role="dialog">
       <span class="close-modal" id="close-modal" aria-label="Close">&times;</span>
       
-      <!-- Sign In Form -->
+      
       <div class="auth-form-container" id="signin-container">
         <h3 class="modal-title">Sign In</h3>
         <form class="auth-form" id="signin-form">
@@ -361,6 +361,43 @@
     
   <div class="notification"></div>
   
+  <!-- AI Assistant -->
+  <div class="ai-assistant-container" id="ai-assistant-container">
+    <div class="ai-assistant-header">
+      <h4>Maeda AI Assistant</h4>
+      <button class="ai-assistant-close" id="ai-assistant-close" aria-label="Close AI Assistant">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="ai-assistant-messages" id="ai-assistant-messages">
+      <div class="ai-message">
+        <div class="ai-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          <p>Hello! I'm your Maeda AI Assistant. I can help you find recipes, suggest meal ideas based on ingredients you have, or answer cooking questions. How can I help you today?</p>
+        </div>
+      </div>
+    </div>
+    <div class="ai-assistant-input">
+      <input type="text" id="ai-assistant-input-field" placeholder="Ask about recipes, ingredients, or cooking tips..." aria-label="Message AI Assistant">
+      <button id="ai-assistant-send" aria-label="Send message">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+    <div class="ai-assistant-suggestions">
+      <button class="suggestion-btn">Recipe ideas with chicken</button>
+      <button class="suggestion-btn">How to make pasta sauce</button>
+      <button class="suggestion-btn">Quick dinner ideas</button>
+    </div>
+  </div>
+
+  <button class="ai-assistant-toggle" id="ai-assistant-toggle" aria-label="Open AI Assistant">
+    <i class="fas fa-comment-alt"></i>
+    <span>AI Assistant</span>
+  </button>
+  
   <script src="js/main.js"></script>
+  <script src="js/ai-assistant.js"></script>
 </body>
 </html>

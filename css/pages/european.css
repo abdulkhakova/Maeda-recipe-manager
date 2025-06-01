@@ -431,7 +431,7 @@
 .category-card {
     background-color: var(--light-text);
     border-radius: 15px;
-    padding: 40px 30px; /* Increased padding */
+    padding: 40px 30px; 
     text-align: center;
     box-shadow: 0 5px 15px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -441,7 +441,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 312px; /* Set minimum height */
+    min-height: 312px; 
 }
 
 .category-card:hover {
@@ -450,15 +450,15 @@
 }
 
 .category-icon {
-    width: 90px; /* Increased size */
-    height: 90px; /* Increased size */
+    width: 90px; 
+    height: 90px; 
     background-color: var(--dutch-white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 25px; /* Increased bottom margin */
-    font-size: 2.2rem; /* Larger icon */
+    margin: 0 auto 25px; 
+    font-size: 2.2rem; 
     color: var(--rojo);
     transition: background-color 0.3s ease;
 }
@@ -468,15 +468,15 @@
 }
 
 .category-card h3 {
-    font-size: 1.5rem; /* Larger text */
-    margin-bottom: 15px; /* More space */
+    font-size: 1.5rem; 
+    margin-bottom: 15px; 
     color: var(--dark-text);
     font-weight: 600;
 }
 
 .category-card p {
     color: var(--gray-text);
-    font-size: 1.05rem; /* Larger text */
+    font-size: 1.05rem; 
     line-height: 1.6;
 }
 .culinary-insights {
@@ -634,7 +634,7 @@
     }
     
     .category-card {
-        min-height: 220px; /* Slightly smaller on mobile */
+        min-height: 220px; 
     }
     .european-header h1 {
         font-size: 2rem;

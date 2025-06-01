@@ -675,20 +675,114 @@ document.addEventListener('DOMContentLoaded', function() {
         showToast('Share link for Uzbek Cuisine collection copied to clipboard');
     });
 
+    
 
-    document.getElementById('learn-more-btn').addEventListener('click', function() {
-        showToast('Exploring Uzbek culinary traditions...');
+    const learnMoreBtn = document.getElementById('learn-more-btn');
+    const traditionsModal = document.getElementById('culinary-traditions-modal');
+    const closeTraditionsBtn = document.getElementById('close-traditions-modal');
+
+    learnMoreBtn.addEventListener('click', function() {
+        traditionsModal.style.display = 'block';
+        traditionsModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeTraditionsBtn.addEventListener('click', function() {
+        traditionsModal.style.display = 'none';
+        traditionsModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
     });
 
 
     const techniqueLinks = document.querySelectorAll('.technique-link');
+    const tandoorModal = document.getElementById('tandoor-modal');
+    const kazanModal = document.getElementById('kazan-modal');
+    const spiceModal = document.getElementById('spice-modal');
+
+    const closeTandoorBtn = document.getElementById('close-tandoor-modal');
+    const closeKazanBtn = document.getElementById('close-kazan-modal');
+    const closeSpiceBtn = document.getElementById('close-spice-modal');
+
     techniqueLinks.forEach(link => {
         link.addEventListener('click', function() {
             const technique = this.getAttribute('data-technique');
-            showToast(`Learning more about ${technique} cooking technique...`);
+            
+            if (technique === 'tandoor') {
+                tandoorModal.style.display = 'block';
+                tandoorModal.setAttribute('aria-hidden', 'false');
+            } else if (technique === 'kazan') {
+                kazanModal.style.display = 'block';
+                kazanModal.setAttribute('aria-hidden', 'false');
+            } else if (technique === 'spice') {
+                spiceModal.style.display = 'block';
+                spiceModal.setAttribute('aria-hidden', 'false');
+            }
+            
+            document.body.style.overflow = 'hidden';
         });
     });
 
+    closeTandoorBtn.addEventListener('click', function() {
+        tandoorModal.style.display = 'none';
+        tandoorModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    });
+
+    closeKazanBtn.addEventListener('click', function() {
+        kazanModal.style.display = 'none';
+        kazanModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    });
+
+    closeSpiceBtn.addEventListener('click', function() {
+        spiceModal.style.display = 'none';
+        spiceModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    });
+
+
+    window.addEventListener('click', function(e) {
+        if (e.target === traditionsModal) {
+            traditionsModal.style.display = 'none';
+            traditionsModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        } else if (e.target === tandoorModal) {
+            tandoorModal.style.display = 'none';
+            tandoorModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        } else if (e.target === kazanModal) {
+            kazanModal.style.display = 'none';
+            kazanModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        } else if (e.target === spiceModal) {
+            spiceModal.style.display = 'none';
+            spiceModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    });
+
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (traditionsModal.style.display === 'block') {
+                traditionsModal.style.display = 'none';
+                traditionsModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            } else if (tandoorModal.style.display === 'block') {
+                tandoorModal.style.display = 'none';
+                tandoorModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            } else if (kazanModal.style.display === 'block') {
+                kazanModal.style.display = 'none';
+                kazanModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            } else if (spiceModal.style.display === 'block') {
+                spiceModal.style.display = 'none';
+                spiceModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+        }
+    });
 
     const newsletterForm = document.getElementById('newsletter-form');
     if (newsletterForm) {

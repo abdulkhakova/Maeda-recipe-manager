@@ -1105,6 +1105,76 @@ button {
     background-color: #e5a93d;
 }
 
+.traditions-modal-content,
+.technique-modal-content {
+    max-width: 800px;
+    padding: 30px;
+}
+
+.traditions-content,
+.technique-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.traditions-image,
+.technique-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.traditions-text h4,
+.technique-text h4 {
+    color: var(--primary-color);
+    margin: 20px 0 10px;
+}
+
+.traditions-text ul,
+.technique-text ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.traditions-text li,
+.technique-text li {
+    margin-bottom: 8px;
+}
+
+.technique-text ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .traditions-content,
+    .technique-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .traditions-image,
+    .technique-image {
+        width: 40%;
+        margin-bottom: 0;
+    }
+    
+    .traditions-text,
+    .technique-text {
+        width: 60%;
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .traditions-modal-content,
+    .technique-modal-content {
+        padding: 20px;
+    }
+}
+
 .toast {
     position: fixed;
     bottom: 30px;

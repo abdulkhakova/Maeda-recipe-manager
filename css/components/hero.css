@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 
-/* Add subtle texture overlay */
+
 .hero::before {
     content: '';
     position: absolute;
@@ -113,7 +113,7 @@
     color: var(--dark-color);
 }
 
-/* Decorative elements */
+
 .hero-badge {
     position: absolute;
     top: 40px;

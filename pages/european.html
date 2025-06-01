@@ -9,6 +9,8 @@
     <title>European Cuisine - Maeda Recipe Manager</title>
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/pages/european.css" />
+    <link rel="stylesheet" href="../css/pages/european-modal.css" />
+    <link rel="stylesheet" href="../css/pages/region-modal.css" />
     <link rel="icon" href="..../images/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,9 +22,8 @@
         content="Explore European cuisines from Italian to Scandinavian with authentic recipes and cooking guides." />
     <meta property="og:image" content="..../images/og-european-cuisine.jpg" />
     <meta property="og:url" content="https://maeda.com/pages/european.html" />
-    <link rel="stylesheet" href="../css/pages/european-modal.css">
 </head>
-<script src="../js/european-js.js"></script>
+
 <body>
     <nav class="navbar">
         <div class="logo">
@@ -81,47 +82,47 @@
                     <p>Discover authentic recipes from different European culinary traditions</p>
                 </div>
                 <div class="regions-container">
-                    <a href="/pages/regions/italian.html" class="region-card">
+                    <div class="region-card" data-region="italian">
                         <div class="region-image-container">
                             <img src="../images/regions/italian.jpg" alt="Italian cuisine featuring pasta and pizza"
                                 width="180" height="100" loading="lazy">
                         </div>
                         <div class="region-name">Italian</div>
                         <div class="region-info">120+ recipes</div>
-                    </a>
-                    <a href="/pages/regions/french.html" class="region-card">
+                    </div>
+                    <div class="region-card" data-region="french">
                         <div class="region-image-container">
                             <img src="../images/regions/french.jpg" alt="French cuisine featuring pastries and cheese"
                                 width="180" height="100" loading="lazy">
                         </div>
                         <div class="region-name">French</div>
                         <div class="region-info">95+ recipes</div>
-                    </a>
-                    <a href="/pages/regions/spanish.html" class="region-card">
+                    </div>
+                    <div class="region-card" data-region="spanish">
                         <div class="region-image-container">
                             <img src="../images/regions/spanish.jpg" alt="Spanish cuisine featuring paella and tapas"
                                 width="180" height="100" loading="lazy">
                         </div>
                         <div class="region-name">Spanish</div>
                         <div class="region-info">80+ recipes</div>
-                    </a>
-                    <a href="/pages/regions/greek.html" class="region-card">
+                    </div>
+                    <div class="region-card" data-region="greek">
                         <div class="region-image-container">
                             <img src="../images/regions/greek.jpg" alt="Greek cuisine featuring Mediterranean dishes"
                                 width="180" height="100" loading="lazy">
                         </div>
                         <div class="region-name">Greek</div>
                         <div class="region-info">75+ recipes</div>
-                    </a>
-                    <a href="/pages/regions/german.html" class="region-card">
+                    </div>
+                    <div class="region-card" data-region="german">
                         <div class="region-image-container">
                             <img src="../images/regions/german.jpg" alt="German cuisine featuring sausages and pretzels"
                                 width="180" height="100" loading="lazy">
                         </div>
                         <div class="region-name">German</div>
                         <div class="region-info">60+ recipes</div>
-                    </a>
-                    <a href="/pages/regions/scandinavian.html" class="region-card">
+                    </div>
+                    <div class="region-card" data-region="scandinavian">
                         <div class="region-image-container">
                             <img src="../images/regions/scandinavian.jpg"
                                 alt="Scandinavian cuisine featuring Nordic dishes" width="180" height="100"
@@ -129,8 +130,8 @@
                         </div>
                         <div class="region-name">Scandinavian</div>
                         <div class="region-info">45+ recipes</div>
-                    </a>
-                    <a href="/pages/regions/eastern-european.html" class="region-card">
+                    </div>
+                    <div class="region-card" data-region="eastern-european">
                         <div class="region-image-container">
                             <img src="../images/regions/eastern-european.jpg"
                                 alt="Eastern European cuisine featuring hearty dishes" width="180" height="100"
@@ -138,15 +139,15 @@
                         </div>
                         <div class="region-name">Eastern European</div>
                         <div class="region-info">70+ recipes</div>
-                    </a>
-                    <a href="/pages/regions/british.html" class="region-card">
+                    </div>
+                    <div class="region-card" data-region="british">
                         <div class="region-image-container">
                             <img src="../images/regions/british.jpg" alt="British cuisine featuring traditional dishes"
                                 width="180" height="100" loading="lazy">
                         </div>
                         <div class="region-name">British</div>
                         <div class="region-info">55+ recipes</div>
-                    </a>
+                    </div>
                 </div>
             </section>
 
@@ -184,7 +185,7 @@
                                     <p class="eu-recipe-desc">Authentic Roman pasta dish made with eggs, cheese,
                                         pancetta, and black pepper.</p>
                                     <div class="eu-recipe-actions">
-                                        <a href="/pages/recipes/carbonara.html" class="see-recipe">See Recipe</a>
+                                        <a href="#" class="see-recipe" data-recipe-id="carbonara">See Recipe</a>
                                         <button class="save-recipe" aria-label="Save recipe"><i
                                                 class="far fa-bookmark"></i></button>
                                     </div>
@@ -207,7 +208,7 @@
                                     <p class="eu-recipe-desc">French vegetable stew featuring eggplant, zucchini,
                                         peppers, and tomatoes.</p>
                                     <div class="eu-recipe-actions">
-                                        <a href="/pages/recipes/ratatouille.html" class="see-recipe">See Recipe</a>
+                                        <a href="#" class="see-recipe" data-recipe-id="ratatouille">See Recipe</a>
                                         <button class="save-recipe" aria-label="Save recipe"><i
                                                 class="far fa-bookmark"></i></button>
                                     </div>
@@ -229,7 +230,7 @@
                                     <p class="eu-recipe-desc">Traditional Spanish rice dish with saffron, seafood, and
                                         seasonal vegetables.</p>
                                     <div class="eu-recipe-actions">
-                                        <a href="/pages/recipes/paella.html" class="see-recipe">See Recipe</a>
+                                        <a href="#" class="see-recipe" data-recipe-id="paella">See Recipe</a>
                                         <button class="save-recipe" aria-label="Save recipe"><i
                                                 class="far fa-bookmark"></i></button>
                                     </div>
@@ -251,7 +252,7 @@
                                     <p class="eu-recipe-desc">Layered casserole with eggplant, potatoes, spiced meat,
                                         and béchamel sauce.</p>
                                     <div class="eu-recipe-actions">
-                                        <a href="/pages/recipes/moussaka.html" class="see-recipe">See Recipe</a>
+                                        <a href="#" class="see-recipe" data-recipe-id="moussaka">See Recipe</a>
                                         <button class="save-recipe" aria-label="Save recipe"><i
                                                 class="far fa-bookmark"></i></button>
                                     </div>
@@ -273,7 +274,7 @@
                                     <p class="eu-recipe-desc">Thinly pounded veal cutlets, breaded and fried to golden
                                         perfection.</p>
                                     <div class="eu-recipe-actions">
-                                        <a href="/pages/recipes/schnitzel.html" class="see-recipe">See Recipe</a>
+                                        <a href="#" class="see-recipe" data-recipe-id="schnitzel">See Recipe</a>
                                         <button class="save-recipe" aria-label="Save recipe"><i
                                                 class="far fa-bookmark"></i></button>
                                     </div>
@@ -507,25 +508,14 @@
                 </div>
                 <button type="submit" class="login-btn">Sign In</button>
             </form>
-            <div class="login-options">
-                <p>Or sign in with</p>
-                <div class="social-login">
-                    <button class="social-login-btn" aria-label="Sign in with Facebook"><i
-                            class="fab fa-facebook-f"></i></button>
-                    <button class="social-login-btn" aria-label="Sign in with Google"><i
-                            class="fab fa-google"></i></button>
-                    <button class="social-login-btn" aria-label="Sign in with LinkedIn"><i
-                            class="fab fa-linkedin-in"></i></button>
-                </div>
             </div>
             <a href="../pages/register.html" class="register-link">Don't have an account? Sign up</a>
         </div>
     </div>
 
-    <script src="../js/.js"></script>
+    <script src="../js/european-js.js"></script>
     <script src="../js/navigation.js"></script>
     <script src="../js/slider.js"></script>
-    <!-- <script src="../js/slider.js"></script> -->
 </body>
 
 </html>

@@ -8,6 +8,7 @@
 @import 'components/modal.css';
 @import 'components/footer.css';
 @import 'components/ingredient-search.css';
+@import 'components/ai-assistant.css';
 
 :root {
     --primary-color: #E4281F;
@@ -736,7 +737,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Auth Modal Styles */
 .auth-modal {
     display: none;
     position: fixed;
@@ -1027,7 +1027,6 @@ footer {
     margin-top: 5px;
 }
 
-/* User profile styles after login */
 .user-profile {
     display: flex;
     align-items: center;
