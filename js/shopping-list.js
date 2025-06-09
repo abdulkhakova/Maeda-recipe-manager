@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     initDeliveryProviders();
     initLocationButton();
@@ -243,7 +242,7 @@ function updateCart() {
     
     if (!cartItemsContainer || !cartCount || !subtotalElement || !totalPriceElement || !checkoutBtn || !emptyCartMessage) return;
     
-    // Clear existing items
+    
     const existingItems = cartItemsContainer.querySelectorAll('.cart-item');
     existingItems.forEach(item => item.remove());
     
@@ -337,7 +336,7 @@ function addCartItemListeners() {
             
             showNotification(`Removed ${itemName} from your cart`, 'info');
             
-            // Reset "Add" buttons for removed items in the "missing items" section
+            
             const missingItems = document.querySelectorAll('.missing-item');
             missingItems.forEach(item => {
                 const nameElement = item.querySelector('.missing-name');
@@ -356,7 +355,7 @@ function addCartItemListeners() {
 }
 
 function initCheckoutProcess() {
-    // Fixed: Properly select all necessary elements
+    
     const checkoutBtn = document.querySelector('.checkout-btn');
     const checkoutModal = document.getElementById('checkout-modal');
     const closeCheckoutModal = document.getElementById('close-checkout-modal');
@@ -366,7 +365,7 @@ function initCheckoutProcess() {
     const nextStep2Btn = document.getElementById('next-step-2');
     const closeConfirmationBtn = document.getElementById('close-confirmation');
     
-    // Fixed: Additional check to ensure all elements are properly selected
+    
     if (!checkoutBtn) {
         console.error('Checkout button not found');
         return;
@@ -377,7 +376,7 @@ function initCheckoutProcess() {
         return;
     }
     
-    // Fixed: Improved checkout button click handler
+    
     checkoutBtn.addEventListener('click', function() {
         if (this.disabled) {
             return;
@@ -392,10 +391,10 @@ function initCheckoutProcess() {
                 }
             }
             
-            // Fixed: Reset checkout steps to start from step 1
+            
             goToCheckoutStep(1);
             
-            // Fixed: More robust modal display
+            
             checkoutModal.hidden = false;
             checkoutModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
@@ -469,7 +468,7 @@ function initCheckoutProcess() {
                     paymentText = 'Unknown';
             }
             
-            // Update confirmation details
+            
             const confirmationAddress = document.getElementById('confirmation-address');
             const confirmationPayment = document.getElementById('confirmation-payment');
             
@@ -483,7 +482,7 @@ function initCheckoutProcess() {
             
             goToCheckoutStep(3);
             
-            // Clear cart after successful order
+            
             setTimeout(() => {
                 cartItems = [];
                 updateCart();
@@ -498,7 +497,7 @@ function initCheckoutProcess() {
         });
     }
     
-    // Fixed: Improved modal closing function
+    
     function closeCheckoutModalFn() {
         checkoutModal.classList.remove('show');
         setTimeout(() => {
@@ -506,7 +505,7 @@ function initCheckoutProcess() {
             checkoutModal.hidden = true;
             document.body.style.overflow = '';
             
-            // Reset form fields when modal closes
+            
             const formFields = checkoutModal.querySelectorAll('input, textarea');
             formFields.forEach(field => {
                 if (field.type !== 'radio') {
@@ -515,19 +514,19 @@ function initCheckoutProcess() {
                 field.classList.remove('error');
             });
             
-            // Reset to step 1 for next opening
+            
             goToCheckoutStep(1);
         }, 300);
     }
     
-    // Fixed: Ensure modal close on outside click
+    
     window.addEventListener('click', function(e) {
         if (e.target === checkoutModal) {
             closeCheckoutModalFn();
         }
     });
     
-    // Payment method change handler
+    
     document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
         radio.addEventListener('change', function() {
             const cardDetails = document.querySelector('.card-details');
@@ -537,12 +536,12 @@ function initCheckoutProcess() {
         });
     });
     
-    // Load cart from localStorage on page load
+    
     loadCartFromLocalStorage();
 }
 
 function goToCheckoutStep(step) {
-    // Update step indicators
+    
     document.querySelectorAll('.checkout-step').forEach(s => {
         s.classList.remove('active');
         if (parseInt(s.getAttribute('data-step')) < step) {
@@ -557,7 +556,7 @@ function goToCheckoutStep(step) {
         activeStep.classList.add('active');
     }
     
-    // Update step content visibility
+    
     document.querySelectorAll('.checkout-step-content').forEach(c => {
         c.classList.remove('active');
     });
@@ -569,7 +568,7 @@ function goToCheckoutStep(step) {
 }
 
 function validateCardDetails() {
-    // Skip validation if not using card payment
+    
     const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
     if (!selectedPayment || selectedPayment.id !== 'card-payment') {
         return true;
@@ -588,25 +587,25 @@ function validateCardDetails() {
     let isValid = true;
     const fieldsToCheck = [];
     
-    // Basic validation for card number (16 digits, can have spaces)
+    
     if (!cardNumber.value || !cardNumber.value.replace(/\s/g, '').match(/^\d{16}$/)) {
         fieldsToCheck.push('card-number');
         isValid = false;
     }
     
-    // Expiry date format MM/YY
+    
     if (!expiryDate.value || !expiryDate.value.match(/^(0[1-9]|1[0-2])\/([0-9]{2})$/)) {
         fieldsToCheck.push('expiry-date');
         isValid = false;
     }
     
-    // CVV is 3 digits
+    
     if (!cvv.value || !cvv.value.match(/^\d{3}$/)) {
         fieldsToCheck.push('cvv');
         isValid = false;
     }
     
-    // Name on card shouldn't be empty
+    
     if (!cardName.value.trim()) {
         fieldsToCheck.push('card-name');
         isValid = false;
@@ -626,12 +625,12 @@ function highlightEmptyFields(fieldIds) {
         if (field) {
             field.classList.add('error');
             
-            // Remove error class on input
+            
             field.addEventListener('input', function() {
                 this.classList.remove('error');
             }, { once: true });
             
-            // Focus on the first field with error
+            
             if (fieldIds.indexOf(id) === 0) {
                 field.focus();
             }
@@ -640,12 +639,12 @@ function highlightEmptyFields(fieldIds) {
 }
 
 function parseCurrency(priceString) {
-    // Extract only digits from the price string and convert to integer
+    
     return parseInt(priceString.replace(/[^\d]/g, '')) || 0;
 }
 
 function formatCurrency(amount) {
-    // Format the number according to Uzbek format with UZS currency
+    
     return new Intl.NumberFormat('uz-UZ', {
         style: 'decimal',
         maximumFractionDigits: 0
@@ -656,7 +655,7 @@ function animateAddToCart(item) {
     const itemRect = item.getBoundingClientRect();
     const cartIconRect = document.querySelector('.cart-count').getBoundingClientRect();
     
-    if (!cartIconRect) return; // Safety check
+    if (!cartIconRect) return; 
     
     const animatedElement = document.createElement('div');
     animatedElement.className = 'animated-cart-item';
@@ -676,7 +675,7 @@ function animateAddToCart(item) {
     
     document.body.appendChild(animatedElement);
     
-    // Start animation after a short delay to ensure the element is rendered
+    
     setTimeout(() => {
         animatedElement.style.transition = 'all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1)';
         animatedElement.style.top = `${cartIconRect.top + cartIconRect.height/2}px`;
@@ -684,7 +683,7 @@ function animateAddToCart(item) {
         animatedElement.style.opacity = '0';
         animatedElement.style.transform = 'scale(0.2)';
         
-        // Remove the element after animation completes
+        
         setTimeout(() => {
             if (document.body.contains(animatedElement)) {
                 document.body.removeChild(animatedElement);
@@ -694,7 +693,7 @@ function animateAddToCart(item) {
 }
 
 function showNotification(message, type = 'info') {
-    // Remove any existing notifications with the same message
+    
     const existingNotifications = document.querySelectorAll('.notification');
     existingNotifications.forEach(notification => {
         if (notification.querySelector('span').textContent === message) {
@@ -726,17 +725,17 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Show notification with a small delay
+    
     setTimeout(() => {
         notification.classList.add('show');
     }, 10);
     
-    // Add event listener to close button
+    
     notification.querySelector('.close-notification').addEventListener('click', () => {
         closeNotification(notification);
     });
     
-    // Auto-close after 5 seconds
+    
     setTimeout(() => {
         closeNotification(notification);
     }, 5000);
