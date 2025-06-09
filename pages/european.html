@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/pages/european.css" />
     <link rel="stylesheet" href="../css/pages/european-modal.css" />
     <link rel="stylesheet" href="../css/pages/region-modal.css" />
-    <link rel="icon" href="..../images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -20,7 +20,7 @@
     <meta property="og:title" content="European Cuisine - Maeda Recipe Manager" />
     <meta property="og:description"
         content="Explore European cuisines from Italian to Scandinavian with authentic recipes and cooking guides." />
-    <meta property="og:image" content="..../images/og-european-cuisine.jpg" />
+    <meta property="og:image" content="../images/og-european-cuisine.jpg" />
     <meta property="og:url" content="https://maeda.com/pages/european.html" />
 </head>
 
@@ -54,11 +54,9 @@
         </div>
 
         <div class="user-controls">
-            <button class="sign-in-btn" id="sign-in-btn" aria-haspopup="dialog"><i class="fas fa-sign-in-alt"></i> Sign
-                In</button>
-            <button class="sign-up-btn" onclick="location.href='../pages/register.html'"><i
-                    class="fas fa-user-plus"></i> Sign Up</button>
-        </div>
+            <button class="sign-in-btn" id="sign-in-btn" aria-haspopup="dialog">Sign In</button>
+            <button class="sign-up-btn" onclick="location.href='/pages/register.html'">Sign Up</button>
+          </div>
     </nav>
 
     <main>
@@ -492,10 +490,10 @@
         </div>
     </footer>
 
-    <div class="" id="login-" aria-labelledby="-title" aria-="true" role="dialog" hidden>
-        <div class="-content">
-            <button class="close-" id="close-" aria-label="Close">&times;</button>
-            <h3 class="-title" id="-title">Sign In</h3>
+    <div class="modal login-modal" id="login-modal" aria-labelledby="login-modal-title" aria-modal="true" role="dialog" hidden>
+        <div class="modal-content login-modal-content">
+            <button class="close-modal" id="close-login-modal" aria-label="Close">&times;</button>
+            <h3 class="modal-title" id="login-modal-title">Sign In</h3>
             <form class="login-form" action="../api/login" method="post">
                 <div class="form-group">
                     <label for="email">Email Address</label>
@@ -508,10 +506,8 @@
                 </div>
                 <button type="submit" class="login-btn">Sign In</button>
             </form>
-            </div>
             <a href="../pages/register.html" class="register-link">Don't have an account? Sign up</a>
         </div>
-    </div>
 
     <script src="../js/european-js.js"></script>
     <script src="../js/navigation.js"></script>
