@@ -26,13 +26,13 @@
       </ul>
   
       <div class="search-box">
-        <input type="text" placeholder="Search videos..." aria-label="Search videos" />
-        <button aria-label="Search">🔍</button>
+        <input type="text" placeholder="Search recipes..." aria-label="Search recipes" />
+        <button aria-label="Search"><i class="fas fa-search"></i></button>
       </div>
   
       <div class="user-controls">
         <button class="sign-in-btn" id="sign-in-btn">Sign In</button>
-        <button class="sign-up-btn">Sign Up</button>
+        <button class="sign-up-btn" id="sign-up-btn">Sign Up</button>
       </div>
     </nav>
 
@@ -359,107 +359,195 @@
             </div>
             
         </section>
-        <footer>
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h5>About Maeda</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Explore</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Recipe Collections</a></li>
-                        <li><a href="#">Seasonal Favorites</a></li>
-                        <li><a href="#">Cooking Tips</a></li>
-                        <li><a href="#">Ingredient Guides</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Support</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Connect with Us</h5>
-                    <p>Join our community and get the latest recipes and cooking tips.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2025 Maeda Recipe Manager. All rights reserved.
-            </div>
-        </footer>
-
-        <div id="video-modal" class="video-modal" aria-hidden="true">
-            <div class="video-modal-content">
-                <button class="close-video-modal" aria-label="Close video">&times;</button>
-                <div class="video-player-container">
-                    <div class="video-player">
-                        <iframe id="video-iframe" src="" title="Video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-player-info">
-                        <h2 id="modal-video-title">Video Title</h2>
-                        <div class="video-player-meta">
-                            <div class="chef-info">
-                                <img id="modal-chef-img" src="" alt="Chef" class="chef-avatar">
-                                <span id="modal-chef-name">Chef Name</span>
-                            </div>
-                            <div class="video-stats">
-                                <span id="modal-views">0 views</span>
-                                <span id="modal-rating">0.0 ★</span>
-                            </div>
-                        </div>
-                        <p id="modal-video-description">Video description goes here.</p>
-                        <div class="video-actions">
-                            <button class="action-btn">
-                                <span class="action-icon">👍</span> Like
-                            </button>
-                            <button class="action-btn">
-                                <span class="action-icon">💾</span> Save
-                            </button>
-                            <button class="action-btn">
-                                <span class="action-icon">🔗</span> Share
-                            </button>
-                        </div>
-                    </div>
-                    <div class="video-ingredients">
-                        <h3>Ingredients</h3>
-                        <ul id="modal-ingredients">
-                        </ul>
-                        <button class="add-to-shopping-list">Add All to Shopping List</button>
-                    </div>
-                    <div class="video-comments">
-                        <h3>Comments</h3>
-                        <div class="comment-form">
-                            <img src="../images/users/default-user.jpg" alt="User" class="user-avatar">
-                            <input type="text" placeholder="Add a comment...">
-                            <button>Comment</button>
-                        </div>
-                        <div class="comments-list">
-                        </div>
-                        <button class="load-more-comments">Load More Comments</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
     <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h5>About Maeda</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Explore</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Recipe Collections</a></li>
+                    <li><a href="#">Seasonal Favorites</a></li>
+                    <li><a href="#">Cooking Tips</a></li>
+                    <li><a href="#">Ingredient Guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Connect with Us</h5>
+                <p>Join our community and get the latest recipes and cooking tips.</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Maeda Recipe Manager. All rights reserved.
+        </div>
     </footer>
+
+    <div id="video-modal" class="video-modal" aria-hidden="true">
+        <div class="video-modal-content">
+            <button class="close-video-modal" aria-label="Close video">&times;</button>
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="video-iframe" src="" title="Video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-player-info">
+                    <h2 id="modal-video-title">Video Title</h2>
+                    <div class="video-player-meta">
+                        <div class="chef-info">
+                            <img id="modal-chef-img" src="" alt="Chef" class="chef-avatar">
+                            <span id="modal-chef-name">Chef Name</span>
+                        </div>
+                        <div class="video-stats">
+                            <span id="modal-views">0 views</span>
+                            <span id="modal-rating">0.0 ★</span>
+                        </div>
+                    </div>
+                    <p id="modal-video-description">Video description goes here.</p>
+                    <div class="video-actions">
+                        <button class="action-btn">
+                            <span class="action-icon">👍</span> Like
+                        </button>
+                        <button class="action-btn">
+                            <span class="action-icon">💾</span> Save
+                        </button>
+                        <button class="action-btn">
+                            <span class="action-icon">🔗</span> Share
+                        </button>
+                    </div>
+                </div>
+                <div class="video-ingredients">
+                    <h3>Ingredients</h3>
+                    <ul id="modal-ingredients">
+                    </ul>
+                    <button class="add-to-shopping-list">Add All to Shopping List</button>
+                </div>
+                <div class="video-comments">
+                    <h3>Comments</h3>
+                    <div class="comment-form">
+                        <img src="../images/users/default-user.jpg" alt="User" class="user-avatar">
+                        <input type="text" placeholder="Add a comment...">
+                        <button>Comment</button>
+                    </div>
+                    <div class="comments-list">
+                    </div>
+                    <button class="load-more-comments">Load More Comments</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<div id="sign-in-modal" class="auth-modal" aria-hidden="true">
+    <div class="auth-modal-content" role="dialog">
+        <span class="close-modal" id="close-signin-modal" aria-label="Close">&times;</span>
+        
+        <h2 class="modal-title">Sign In</h2>
+        
+        <form class="auth-form" id="signin-form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <span class="error-message" id="email-error" aria-live="polite"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-input">
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                        <i class="far fa-eye"></i>
+                    </button>
+                </div>
+                <span class="error-message" id="password-error" aria-live="polite"></span>
+            </div>
+            
+            <div class="form-options">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            
+            <button type="submit" class="auth-submit-btn">Sign In</button>
+        </form>
+        
+        
+        <div class="auth-switch">
+            <p>Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="sign-up-modal" class="auth-modal" aria-hidden="true">
+    <div class="auth-modal-content" role="dialog">
+        <span class="close-modal" id="close-signup-modal" aria-label="Close">&times;</span>
+        
+        <h2 class="modal-title">Create Account</h2>
+        
+        <form class="auth-form" id="signup-form">
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" placeholder="Enter your full name" required>
+                <span class="error-message" id="name-error" aria-live="polite"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-email">Email Address</label>
+                <input type="email" id="signup-email" placeholder="Enter your email" required>
+                <span class="error-message" id="signup-email-error" aria-live="polite"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <div class="password-input">
+                    <input type="password" id="signup-password" placeholder="Create a password" required>
+                    <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                        <i class="far fa-eye"></i>
+                    </button>
+                </div>
+                <div class="password-strength">Password strength</div>
+                <span class="error-message" id="signup-password-error" aria-live="polite"></span>
+            </div>
+            
+            <div class="terms-agreement">
+                <input type="checkbox" id="terms-agreement" required>
+                <label for="terms-agreement">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                <span class="error-message" id="terms-error" aria-live="polite"></span>
+            </div>
+            
+            <button type="submit" class="auth-submit-btn">Create Account</button>
+        </form>
+        
+        
+        <div class="auth-switch">
+            <p>Already have an account? <a href="#" id="switch-to-signin">Sign in</a></p>
+        </div>
+    </div>
+</div>
     
     <script src="../js/modal.js"></script>
     <script src="../js/video-tutorials.js"></script>
