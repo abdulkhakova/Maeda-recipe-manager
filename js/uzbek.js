@@ -349,8 +349,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    
     initRecipeModal();
+    initFilterTabs();
+    initFavoriteButtons();
+    initShareButtons();
+    initNewsletterForm();
+    initCultureSection();
+    initTechniqueModals();
+    initCollectionButtons();
 
+    
     function initRecipeModal() {
         const viewButtons = document.querySelectorAll('.view-recipe-btn');
         const recipeModal = document.getElementById('recipe-modal');
@@ -378,11 +387,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeRecipeModal();
             }
         });
+
+        
+        document.getElementById('save-recipe-modal').addEventListener('click', function() {
+            const recipeId = this.getAttribute('data-recipe-id');
+            const recipeName = recipes[recipeId].title;
+            
+            
+            const heartIcon = this.querySelector('i');
+            if (heartIcon.classList.contains('far')) {
+                heartIcon.classList.replace('far', 'fas');
+                showToast(`${recipeName} has been saved to your favorites`);
+            } else {
+                heartIcon.classList.replace('fas', 'far');
+                showToast(`${recipeName} has been removed from your favorites`);
+            }
+        });
+
+        document.getElementById('share-recipe-modal').addEventListener('click', function() {
+            const recipeId = this.getAttribute('data-recipe-id');
+            openShareModal(recipeId);
+        });
+
+        document.getElementById('print-recipe').addEventListener('click', function() {
+            const recipeId = document.getElementById('recipe-modal').getAttribute('data-current-recipe');
+            printRecipe(recipeId);
+        });
+
+        document.getElementById('add-to-shopping-list').addEventListener('click', function() {
+            const recipeId = document.getElementById('recipe-modal').getAttribute('data-current-recipe');
+            const recipeName = recipes[recipeId].title;
+            showToast(`Ingredients for ${recipeName} added to shopping list`);
+        });
     }
 
     function openRecipeModal(recipeId) {
         const recipe = recipes[recipeId];
-        if (!recipe) return;
+        if (!recipe) {
+            console.error(`Recipe with ID ${recipeId} not found`);
+            return;
+        }
         
         const modal = document.getElementById('recipe-modal');
         
@@ -421,91 +465,241 @@ document.addEventListener('DOMContentLoaded', function() {
             nutritionFacts.appendChild(div);
         }
         
-        modal.style.display = 'block';
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden'; 
+        
+        const saveButton = document.getElementById('save-recipe-modal');
+        const isSaved = localStorage.getItem(`saved-${recipeId}`) === 'true';
+        const heartIcon = saveButton.querySelector('i');
+        
+        if (isSaved) {
+            heartIcon.className = 'fas fa-heart';
+        } else {
+            heartIcon.className = 'far fa-heart';
+        }
+        
         
         modal.setAttribute('data-current-recipe', recipeId);
-        
-        document.getElementById('save-recipe-modal').setAttribute('data-recipe-id', recipeId);
+        saveButton.setAttribute('data-recipe-id', recipeId);
         document.getElementById('share-recipe-modal').setAttribute('data-recipe-id', recipeId);
+        
+        
+        modal.style.display = 'block';
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        
+        modal.classList.add('fade-in');
+        setTimeout(() => {
+            modal.classList.remove('fade-in');
+        }, 300);
     }
 
     function closeRecipeModal() {
         const modal = document.getElementById('recipe-modal');
-        modal.style.display = 'none';
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = ''; 
+        
+        
+        modal.classList.add('fade-out');
+        
+        setTimeout(() => {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            modal.classList.remove('fade-out');
+        }, 300);
     }
 
-    document.getElementById('save-recipe-modal').addEventListener('click', function() {
-        const recipeId = this.getAttribute('data-recipe-id');
-        const recipeName = recipes[recipeId].title;
-        showToast(`${recipeName} has been saved to your favorites`);
-    });
+    
+    function initFilterTabs() {
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                
+                filterTabs.forEach(t => t.classList.remove('active'));
+                
+                
+                this.classList.add('active');
+                
+                
+                const filter = this.getAttribute('data-filter');
+                
+                
+                const recipeCards = document.querySelectorAll('.recipe-card');
+                
+                recipeCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        
+                        card.style.display = 'block';
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
 
-    document.getElementById('share-recipe-modal').addEventListener('click', function() {
-        const recipeId = this.getAttribute('data-recipe-id');
-        openShareModal(recipeId);
-    });
+    
+    function initFavoriteButtons() {
+        const saveButtons = document.querySelectorAll('.save-recipe');
+        
+        saveButtons.forEach(button => {
+            const recipeId = button.getAttribute('data-recipe-id');
+            const isSaved = localStorage.getItem(`saved-${recipeId}`) === 'true';
+            const heartIcon = button.querySelector('i');
+            
+            
+            if (isSaved) {
+                heartIcon.classList.replace('far', 'fas');
+            }
+            
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                
+                const recipeId = this.getAttribute('data-recipe-id');
+                const recipeName = recipes[recipeId].title;
+                
+                
+                const isSaved = heartIcon.classList.contains('fas');
+                
+                if (isSaved) {
+                    heartIcon.classList.replace('fas', 'far');
+                    localStorage.setItem(`saved-${recipeId}`, 'false');
+                    showToast(`${recipeName} removed from favorites`);
+                } else {
+                    heartIcon.classList.replace('far', 'fas');
+                    localStorage.setItem(`saved-${recipeId}`, 'true');
+                    showToast(`${recipeName} added to favorites`);
+                }
+            });
+        });
+    }
 
-    document.getElementById('print-recipe').addEventListener('click', function() {
-        const recipeId = document.getElementById('recipe-modal').getAttribute('data-current-recipe');
-        printRecipe(recipeId);
-    });
-
-    document.getElementById('add-to-shopping-list').addEventListener('click', function() {
-        const recipeId = document.getElementById('recipe-modal').getAttribute('data-current-recipe');
-        const recipeName = recipes[recipeId].title;
-        showToast(`Ingredients for ${recipeName} added to shopping list`);
-    });
+    
+    function initShareButtons() {
+        const shareCardButtons = document.querySelectorAll('.share-recipe');
+        const closeShareModalBtn = document.getElementById('close-share-modal');
+        const shareModal = document.getElementById('share-modal');
+        
+        shareCardButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                
+                const recipeId = this.getAttribute('data-recipe-id');
+                openShareModal(recipeId);
+            });
+        });
+        
+        closeShareModalBtn.addEventListener('click', function() {
+            closeShareModal();
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === shareModal) {
+                closeShareModal();
+            }
+        });
+        
+        document.getElementById('copy-link').addEventListener('click', function() {
+            const linkInput = document.getElementById('share-link');
+            linkInput.select();
+            document.execCommand('copy');
+            showToast('Link copied to clipboard');
+        });
+        
+        
+        document.getElementById('share-facebook').addEventListener('click', function() {
+            const recipeId = shareModal.getAttribute('data-recipe-id');
+            const url = `https://maeda-recipes.com/recipes/${recipeId}`;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+            showToast('Shared on Facebook');
+            closeShareModal();
+        });
+        
+        document.getElementById('share-twitter').addEventListener('click', function() {
+            const recipeId = shareModal.getAttribute('data-recipe-id');
+            const recipe = recipes[recipeId];
+            const url = `https://maeda-recipes.com/recipes/${recipeId}`;
+            const text = `Check out this delicious ${recipe.title} recipe from Maeda Recipe Manager!`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+            showToast('Shared on Twitter');
+            closeShareModal();
+        });
+        
+        document.getElementById('share-pinterest').addEventListener('click', function() {
+            const recipeId = shareModal.getAttribute('data-recipe-id');
+            const recipe = recipes[recipeId];
+            const url = `https://maeda-recipes.com/recipes/${recipeId}`;
+            const media = `https://maeda-recipes.com${recipe.image}`;
+            const description = `Delicious ${recipe.title} - Uzbek cuisine recipe`;
+            window.open(`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(media)}&description=${encodeURIComponent(description)}`, '_blank');
+            showToast('Saved to Pinterest');
+            closeShareModal();
+        });
+        
+        document.getElementById('share-email').addEventListener('click', function() {
+            const recipeId = shareModal.getAttribute('data-recipe-id');
+            const recipe = recipes[recipeId];
+            const subject = `Check out this ${recipe.title} recipe!`;
+            const body = `I found this delicious ${recipe.title} recipe on Maeda Recipe Manager that I thought you might enjoy: https://maeda-recipes.com/recipes/${recipeId}`;
+            window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            showToast('Email sharing opened');
+            closeShareModal();
+        });
+    }
 
     function openShareModal(recipeId) {
         const shareModal = document.getElementById('share-modal');
         const recipe = recipes[recipeId];
         
+        if (!recipe) {
+            console.error(`Recipe with ID ${recipeId} not found`);
+            return;
+        }
+        
+        
         document.getElementById('share-link').value = `https://maeda-recipes.com/recipes/${recipeId}`;
+        shareModal.setAttribute('data-recipe-id', recipeId);
+        
         
         shareModal.style.display = 'block';
         shareModal.setAttribute('aria-hidden', 'false');
+        
+        
+        shareModal.classList.add('fade-in');
+        setTimeout(() => {
+            shareModal.classList.remove('fade-in');
+        }, 300);
     }
 
-    document.getElementById('close-share-modal').addEventListener('click', function() {
+    function closeShareModal() {
         const shareModal = document.getElementById('share-modal');
-        shareModal.style.display = 'none';
-        shareModal.setAttribute('aria-hidden', 'true');
-    });
+        
+        t
+        shareModal.classList.add('fade-out');
+        
+        setTimeout(() => {
+            shareModal.style.display = 'none';
+            shareModal.setAttribute('aria-hidden', 'true');
+            shareModal.classList.remove('fade-out');
+        }, 300);
+    }
 
-    document.getElementById('copy-link').addEventListener('click', function() {
-        const linkInput = document.getElementById('share-link');
-        linkInput.select();
-        document.execCommand('copy');
-        showToast('Link copied to clipboard');
-    });
-
-    document.getElementById('share-facebook').addEventListener('click', function() {
-        showToast('Shared on Facebook');
-        document.getElementById('share-modal').style.display = 'none';
-    });
-
-    document.getElementById('share-twitter').addEventListener('click', function() {
-        showToast('Shared on Twitter');
-        document.getElementById('share-modal').style.display = 'none';
-    });
-
-    document.getElementById('share-pinterest').addEventListener('click', function() {
-        showToast('Saved to Pinterest');
-        document.getElementById('share-modal').style.display = 'none';
-    });
-
-    document.getElementById('share-email').addEventListener('click', function() {
-        showToast('Email sharing opened');
-        document.getElementById('share-modal').style.display = 'none';
-    });
-
+    
     function printRecipe(recipeId) {
         const recipe = recipes[recipeId];
-        if (!recipe) return;
+        if (!recipe) {
+            console.error(`Recipe with ID ${recipeId} not found`);
+            return;
+        }
         
         const printWindow = window.open('', '_blank');
         
@@ -516,14 +710,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 <style>
                     body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
                     h1 { color: #E4281F; border-bottom: 2px solid #E4281F; padding-bottom: 10px; }
-                    .recipe-meta { display: flex; gap: 20px; margin-bottom: 20px; color: #666; }
+                    .recipe-meta { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 20px; color: #666; }
                     h2 { color: #333; margin-top: 30px; }
                     ul, ol { margin-bottom: 30px; }
                     li { margin-bottom: 10px; }
-                    .tips { background-color: #f9f9f9; padding: 15px; border-left: 4px solid #E4281F; }
+                    .tips { background-color: #f9f9f9; padding: 15px; border-left: 4px solid #E4281F; margin: 20px 0; }
                     .nutrition { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 30px; }
                     .nutrition-item { background-color: #f0f0f0; padding: 10px; border-radius: 5px; text-align: center; }
                     .nutrient { font-weight: bold; display: block; }
+                    @media print {
+                        body { font-size: 12pt; }
+                        h1 { font-size: 18pt; }
+                        h2 { font-size: 16pt; }
+                        .no-print { display: none; }
+                    }
                 </style>
             </head>
             <body>
@@ -581,6 +781,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 <footer style="margin-top: 50px; text-align: center; color: #666;">
                     <p>Recipe from Maeda Recipe Manager - Uzbek Cuisine Collection</p>
+                    <p class="no-print">Printed on ${new Date().toLocaleDateString()}</p>
                 </footer>
             </body>
             </html>
@@ -591,206 +792,245 @@ document.addEventListener('DOMContentLoaded', function() {
         printWindow.document.close();
         
         printWindow.onload = function() {
-            printWindow.print();
+            setTimeout(() => {
+                printWindow.print();
+            }, 500);
         };
     }
 
-    const filterTabs = document.querySelectorAll('.filter-tab');
-    filterTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            filterTabs.forEach(t => t.classList.remove('active'));
-
-            this.classList.add('active');
-            
-            
-            const filter = this.getAttribute('data-filter');
-            
-            
-            const recipeCards = document.querySelectorAll('.recipe-card');
-            recipeCards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
+    
+    function initNewsletterForm() {
+        const newsletterForm = document.getElementById('newsletter-form');
+        
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const emailInput = document.getElementById('newsletter-email');
+                const email = emailInput.value.trim();
+                
+                if (!isValidEmail(email)) {
+                    showToast('Please enter a valid email address', 'error');
+                    return;
                 }
+                
+                
+                showToast(`Thank you for subscribing with ${email}! You'll receive our Uzbek recipes soon.`, 'success');
+                this.reset();
             });
-        });
-    });
-
-    
-    const saveButtons = document.querySelectorAll('.save-recipe');
-    saveButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation(); 
-            const recipeId = this.getAttribute('data-recipe-id');
-            const recipeName = recipes[recipeId].title;
-            
-            
-            const isSaved = this.querySelector('i').classList.contains('fas');
-            if (isSaved) {
-                this.querySelector('i').classList.replace('fas', 'far');
-                showToast(`${recipeName} removed from favorites`);
-            } else {
-                this.querySelector('i').classList.replace('far', 'fas');
-                showToast(`${recipeName} added to favorites`);
-            }
-        });
-    });
-
-    
-    const shareCardButtons = document.querySelectorAll('.share-recipe');
-    shareCardButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation(); 
-            const recipeId = this.getAttribute('data-recipe-id');
-            openShareModal(recipeId);
-        });
-    });
-
-
-    function showToast(message) {
-        const toast = document.getElementById('toast');
-        const toastMessage = document.querySelector('.toast-message');
-        
-        toastMessage.textContent = message;
-        toast.classList.add('show');
-        
-
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 3000);
+        }
     }
 
-
-    document.getElementById('toast-close').addEventListener('click', function() {
-        document.getElementById('toast').classList.remove('show');
-    });
-
-
-    document.getElementById('save-collection-btn').addEventListener('click', function() {
-        showToast('Uzbek Cuisine collection saved to your favorites');
-    });
-
-    document.getElementById('share-collection-btn').addEventListener('click', function() {
-        showToast('Share link for Uzbek Cuisine collection copied to clipboard');
-    });
+    
+    function isValidEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
 
     
-
-    const learnMoreBtn = document.getElementById('learn-more-btn');
-    const traditionsModal = document.getElementById('culinary-traditions-modal');
-    const closeTraditionsBtn = document.getElementById('close-traditions-modal');
-
-    learnMoreBtn.addEventListener('click', function() {
-        traditionsModal.style.display = 'block';
-        traditionsModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-    });
-
-    closeTraditionsBtn.addEventListener('click', function() {
-        traditionsModal.style.display = 'none';
-        traditionsModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    });
-
-
-    const techniqueLinks = document.querySelectorAll('.technique-link');
-    const tandoorModal = document.getElementById('tandoor-modal');
-    const kazanModal = document.getElementById('kazan-modal');
-    const spiceModal = document.getElementById('spice-modal');
-
-    const closeTandoorBtn = document.getElementById('close-tandoor-modal');
-    const closeKazanBtn = document.getElementById('close-kazan-modal');
-    const closeSpiceBtn = document.getElementById('close-spice-modal');
-
-    techniqueLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            const technique = this.getAttribute('data-technique');
-            
-            if (technique === 'tandoor') {
-                tandoorModal.style.display = 'block';
-                tandoorModal.setAttribute('aria-hidden', 'false');
-            } else if (technique === 'kazan') {
-                kazanModal.style.display = 'block';
-                kazanModal.setAttribute('aria-hidden', 'false');
-            } else if (technique === 'spice') {
-                spiceModal.style.display = 'block';
-                spiceModal.setAttribute('aria-hidden', 'false');
-            }
-            
+    function initCultureSection() {
+        const learnMoreBtn = document.getElementById('learn-more-btn');
+        const traditionsModal = document.getElementById('culinary-traditions-modal');
+        const closeTraditionsBtn = document.getElementById('close-traditions-modal');
+        
+        learnMoreBtn.addEventListener('click', function() {
+            traditionsModal.style.display = 'block';
+            traditionsModal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+            
+            
+            traditionsModal.classList.add('fade-in');
+            setTimeout(() => {
+                traditionsModal.classList.remove('fade-in');
+            }, 300);
         });
-    });
+        
+        closeTraditionsBtn.addEventListener('click', function() {
+            closeTraditionsModal();
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === traditionsModal) {
+                closeTraditionsModal();
+            }
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && traditionsModal.style.display === 'block') {
+                closeTraditionsModal();
+            }
+        });
+    }
 
-    closeTandoorBtn.addEventListener('click', function() {
-        tandoorModal.style.display = 'none';
-        tandoorModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    });
-
-    closeKazanBtn.addEventListener('click', function() {
-        kazanModal.style.display = 'none';
-        kazanModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    });
-
-    closeSpiceBtn.addEventListener('click', function() {
-        spiceModal.style.display = 'none';
-        spiceModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    });
-
-
-    window.addEventListener('click', function(e) {
-        if (e.target === traditionsModal) {
+    function closeTraditionsModal() {
+        const traditionsModal = document.getElementById('culinary-traditions-modal');
+        
+        
+        traditionsModal.classList.add('fade-out');
+        
+        setTimeout(() => {
             traditionsModal.style.display = 'none';
             traditionsModal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
-        } else if (e.target === tandoorModal) {
-            tandoorModal.style.display = 'none';
-            tandoorModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        } else if (e.target === kazanModal) {
-            kazanModal.style.display = 'none';
-            kazanModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        } else if (e.target === spiceModal) {
-            spiceModal.style.display = 'none';
-            spiceModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-    });
+            traditionsModal.classList.remove('fade-out');
+        }, 300);
+    }
 
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            if (traditionsModal.style.display === 'block') {
-                traditionsModal.style.display = 'none';
-                traditionsModal.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-            } else if (tandoorModal.style.display === 'block') {
-                tandoorModal.style.display = 'none';
-                tandoorModal.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-            } else if (kazanModal.style.display === 'block') {
-                kazanModal.style.display = 'none';
-                kazanModal.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-            } else if (spiceModal.style.display === 'block') {
-                spiceModal.style.display = 'none';
-                spiceModal.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
+    
+    function initTechniqueModals() {
+        const techniqueLinks = document.querySelectorAll('.technique-link');
+        const tandoorModal = document.getElementById('tandoor-modal');
+        const kazanModal = document.getElementById('kazan-modal');
+        const spiceModal = document.getElementById('spice-modal');
+        
+        const closeTandoorBtn = document.getElementById('close-tandoor-modal');
+        const closeKazanBtn = document.getElementById('close-kazan-modal');
+        const closeSpiceBtn = document.getElementById('close-spice-modal');
+        
+        techniqueLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const technique = this.getAttribute('data-technique');
+                
+                let modal;
+                if (technique === 'tandoor') {
+                    modal = tandoorModal;
+                } else if (technique === 'kazan') {
+                    modal = kazanModal;
+                } else if (technique === 'spice') {
+                    modal = spiceModal;
+                }
+                
+                if (modal) {
+                    modal.style.display = 'block';
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                    
+                    
+                    modal.classList.add('fade-in');
+                    setTimeout(() => {
+                        modal.classList.remove('fade-in');
+                    }, 300);
+                }
+            });
+        });
+        
+        
+        closeTandoorBtn.addEventListener('click', function() {
+            closeTechniqueModal(tandoorModal);
+        });
+        
+        closeKazanBtn.addEventListener('click', function() {
+            closeTechniqueModal(kazanModal);
+        });
+        
+        closeSpiceBtn.addEventListener('click', function() {
+            closeTechniqueModal(spiceModal);
+        });
+        
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === tandoorModal) {
+                closeTechniqueModal(tandoorModal);
+            } else if (e.target === kazanModal) {
+                closeTechniqueModal(kazanModal);
+            } else if (e.target === spiceModal) {
+                closeTechniqueModal(spiceModal);
             }
-        }
-    });
+        });
+        
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (tandoorModal.style.display === 'block') {
+                    closeTechniqueModal(tandoorModal);
+                } else if (kazanModal.style.display === 'block') {
+                    closeTechniqueModal(kazanModal);
+                } else if (spiceModal.style.display === 'block') {
+                    closeTechniqueModal(spiceModal);
+                }
+            }
+        });
+    }
 
-    const newsletterForm = document.getElementById('newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('newsletter-email').value;
-            showToast(`Thank you for subscribing with ${email}! You'll receive our Uzbek recipes soon.`);
-            this.reset();
+    function closeTechniqueModal(modal) {
+        
+        modal.classList.add('fade-out');
+        
+        setTimeout(() => {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            modal.classList.remove('fade-out');
+        }, 300);
+    }
+
+    
+    function initCollectionButtons() {
+        document.getElementById('save-collection-btn').addEventListener('click', function() {
+            
+            const isSaved = localStorage.getItem('saved-uzbek-collection') === 'true';
+            
+            if (isSaved) {
+                localStorage.setItem('saved-uzbek-collection', 'false');
+                showToast('Uzbek Cuisine collection removed from your favorites');
+                this.innerHTML = '<i class="fas fa-bookmark"></i> Save Collection';
+            } else {
+                localStorage.setItem('saved-uzbek-collection', 'true');
+                showToast('Uzbek Cuisine collection saved to your favorites');
+                this.innerHTML = '<i class="fas fa-bookmark"></i> Saved';
+            }
+        });
+        
+        
+        if (localStorage.getItem('saved-uzbek-collection') === 'true') {
+            document.getElementById('save-collection-btn').innerHTML = '<i class="fas fa-bookmark"></i> Saved';
+        }
+        
+        document.getElementById('share-collection-btn').addEventListener('click', function() {
+            navigator.clipboard.writeText('https://maeda-recipes.com/cuisine/uzbek')
+                .then(() => {
+                    showToast('Share link for Uzbek Cuisine collection copied to clipboard');
+                })
+                .catch(err => {
+                    console.error('Could not copy text: ', err);
+                    showToast('Failed to copy link', 'error');
+                });
+        });
+    }
+
+    
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.querySelector('.toast-message');
+        const toastIcon = document.querySelector('.toast-icon');
+        
+        
+        toastMessage.textContent = message;
+        
+        
+        if (type === 'success') {
+            toastIcon.className = 'fas fa-check-circle toast-icon';
+            toastIcon.style.color = '#4CAF50';
+        } else if (type === 'error') {
+            toastIcon.className = 'fas fa-exclamation-circle toast-icon';
+            toastIcon.style.color = '#F44336';
+        } else if (type === 'info') {
+            toastIcon.className = 'fas fa-info-circle toast-icon';
+            toastIcon.style.color = '#2196F3';
+        }
+        
+        
+        toast.classList.add('show');
+        
+        
+        const toastTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+        
+        
+        document.getElementById('toast-close').addEventListener('click', function() {
+            toast.classList.remove('show');
+            clearTimeout(toastTimeout);
         });
     }
 });

@@ -432,4 +432,244 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     updateFilterTags();
+
+    // Authentication Modal Functionality
+    const signInBtn = document.getElementById('sign-in-btn');
+    const signUpBtn = document.getElementById('sign-up-btn');
+    const signInModal = document.getElementById('sign-in-modal');
+    const signUpModal = document.getElementById('sign-up-modal');
+    const closeSignInModal = document.getElementById('close-signin-modal');
+    const closeSignUpModal = document.getElementById('close-signup-modal');
+    const switchToSignup = document.getElementById('switch-to-signup');
+    const switchToSignin = document.getElementById('switch-to-signin');
+    const passwordToggles = document.querySelectorAll('.toggle-password');
+    const signupPassword = document.getElementById('signup-password');
+    const passwordStrength = document.querySelector('.password-strength');
+    const signInForm = document.getElementById('signin-form');
+    const signUpForm = document.getElementById('signup-form');
+    
+    
+    if (signInBtn) {
+        signInBtn.addEventListener('click', function() {
+            signInModal.style.display = 'block';
+            signInModal.setAttribute('aria-hidden', 'false');
+            document.querySelector('#email').focus();
+        });
+    }
+    
+    
+    if (signUpBtn) {
+        signUpBtn.addEventListener('click', function() {
+            signUpModal.style.display = 'block';
+            signUpModal.setAttribute('aria-hidden', 'false');
+            document.querySelector('#full-name').focus();
+        });
+    }
+    
+    
+    if (closeSignInModal) {
+        closeSignInModal.addEventListener('click', function() {
+            signInModal.style.display = 'none';
+            signInModal.setAttribute('aria-hidden', 'true');
+        });
+    }
+    
+    
+    if (closeSignUpModal) {
+        closeSignUpModal.addEventListener('click', function() {
+            signUpModal.style.display = 'none';
+            signUpModal.setAttribute('aria-hidden', 'true');
+        });
+    }
+    
+    
+    window.addEventListener('click', function(e) {
+        if (e.target === signInModal) {
+            signInModal.style.display = 'none';
+            signInModal.setAttribute('aria-hidden', 'true');
+        }
+        if (e.target === signUpModal) {
+            signUpModal.style.display = 'none';
+            signUpModal.setAttribute('aria-hidden', 'true');
+        }
+    });
+    
+    
+    if (switchToSignup) {
+        switchToSignup.addEventListener('click', function(e) {
+            e.preventDefault();
+            signInModal.style.display = 'none';
+            signUpModal.style.display = 'block';
+            signUpModal.setAttribute('aria-hidden', 'false');
+            document.querySelector('#full-name').focus();
+        });
+    }
+    
+    
+    if (switchToSignin) {
+        switchToSignin.addEventListener('click', function(e) {
+            e.preventDefault();
+            signUpModal.style.display = 'none';
+            signInModal.style.display = 'block';
+            signInModal.setAttribute('aria-hidden', 'false');
+            document.querySelector('#email').focus();
+        });
+    }
+    
+    
+    passwordToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const passwordInput = this.parentElement.querySelector('input');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+        });
+    });
+    
+    
+    if (signupPassword && passwordStrength) {
+        signupPassword.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+            
+            if (password.length >= 8) strength += 1;
+            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength += 1;
+            if (password.match(/\d/)) strength += 1;
+            if (password.match(/[^a-zA-Z\d]/)) strength += 1;
+            
+            switch (strength) {
+                case 0:
+                    passwordStrength.textContent = "Password strength";
+                    passwordStrength.style.color = "#777";
+                    break;
+                case 1:
+                    passwordStrength.textContent = "Password strength: Weak";
+                    passwordStrength.style.color = "#ff4d4d";
+                    break;
+                case 2:
+                    passwordStrength.textContent = "Password strength: Medium";
+                    passwordStrength.style.color = "#ffa64d";
+                    break;
+                case 3:
+                    passwordStrength.textContent = "Password strength: Strong";
+                    passwordStrength.style.color = "#2ecc71";
+                    break;
+                case 4:
+                    passwordStrength.textContent = "Password strength: Very Strong";
+                    passwordStrength.style.color = "#27ae60";
+                    break;
+            }
+        });
+    }
+    
+    
+    if (signInForm) {
+        signInForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            let isValid = true;
+            
+            
+            if (!validateEmail(email)) {
+                document.getElementById('email-error').textContent = "Please enter a valid email address";
+                isValid = false;
+            } else {
+                document.getElementById('email-error').textContent = "";
+            }
+            
+            
+            if (password.length < 6) {
+                document.getElementById('password-error').textContent = "Password must be at least 6 characters";
+                isValid = false;
+            } else {
+                document.getElementById('password-error').textContent = "";
+            }
+            
+            if (isValid) {
+                
+                console.log("Sign in form submitted", { email, password });
+                
+                
+                signInModal.style.display = 'none';
+                alert("Successfully signed in!");
+            }
+        });
+    }
+    
+    if (signUpForm) {
+        signUpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const fullName = document.getElementById('full-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const termsAgreed = document.getElementById('terms-agreement').checked;
+            let isValid = true;
+            
+            
+            if (fullName.trim().length < 2) {
+                document.getElementById('name-error').textContent = "Please enter your full name";
+                isValid = false;
+            } else {
+                document.getElementById('name-error').textContent = "";
+            }
+            
+            
+            if (!validateEmail(email)) {
+                document.getElementById('signup-email-error').textContent = "Please enter a valid email address";
+                isValid = false;
+            } else {
+                document.getElementById('signup-email-error').textContent = "";
+            }
+            
+            
+            if (password.length < 8) {
+                document.getElementById('signup-password-error').textContent = "Password must be at least 8 characters";
+                isValid = false;
+            } else {
+                document.getElementById('signup-password-error').textContent = "";
+            }
+            
+            
+            if (!termsAgreed) {
+                document.getElementById('terms-error').textContent = "You must agree to the Terms of Service";
+                isValid = false;
+            } else {
+                document.getElementById('terms-error').textContent = "";
+            }
+            
+            if (isValid) {
+                
+                console.log("Sign up form submitted", { fullName, email, password });
+                
+                
+                signUpModal.style.display = 'none';
+                alert("Account successfully created!");
+            }
+        });
+    }
+    
+    
+    function validateEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+    
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (signInModal.style.display === 'block') {
+                signInModal.style.display = 'none';
+                signInModal.setAttribute('aria-hidden', 'true');
+            }
+            if (signUpModal.style.display === 'block') {
+                signUpModal.style.display = 'none';
+                signUpModal.setAttribute('aria-hidden', 'true');
+            }
+        }
+    });
 });

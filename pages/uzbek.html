@@ -70,11 +70,11 @@
         <section class="recipe-filter-section">
             <div class="container">
                 <div class="filter-tabs">
-                    <button class="filter-tab active" data-filter="all">All Recipes</button>
-                    <button class="filter-tab" data-filter="main">Main Dishes</button>
-                    <button class="filter-tab" data-filter="bread">Breads</button>
-                    <button class="filter-tab" data-filter="soup">Soups</button>
-                    <button class="filter-tab" data-filter="dessert">Desserts</button>
+                    <button class="filter-tab active" data-filter="all" aria-pressed="true">All Recipes</button>
+                    <button class="filter-tab" data-filter="main" aria-pressed="false">Main Dishes</button>
+                    <button class="filter-tab" data-filter="bread" aria-pressed="false">Breads</button>
+                    <button class="filter-tab" data-filter="soup" aria-pressed="false">Soups</button>
+                    <button class="filter-tab" data-filter="dessert" aria-pressed="false">Desserts</button>
                 </div>
                 
                 <div class="recipe-grid">
@@ -348,7 +348,7 @@
                     <h2>Get More Uzbek Recipes</h2>
                     <p>Subscribe to our newsletter and receive exclusive Uzbek recipes, cooking tips, and cultural insights.</p>
                     <form class="newsletter-form" id="newsletter-form">
-                        <input type="email" placeholder="Your email address" required id="newsletter-email">
+                        <input type="email" placeholder="Your email address" required id="newsletter-email" aria-label="Email for newsletter">
                         <button type="submit" class="subscribe-btn">Subscribe</button>
                     </form>
                 </div>
@@ -401,11 +401,11 @@
         </div>
     </footer>
     
-
-    <div class="modal" id="login-modal" aria-hidden="true">
+    
+    <div class="modal" id="login-modal" aria-hidden="true" role="dialog" aria-labelledby="login-title">
         <div class="modal-content">
             <button class="close-modal" id="close-modal" aria-label="Close">&times;</button>
-            <h3 class="modal-title">Sign In</h3>
+            <h3 class="modal-title" id="login-title">Sign In</h3>
             <form class="login-form" id="login-form">
                 <div class="form-group">
                     <label for="email">Email Address</label>
@@ -422,10 +422,11 @@
         </div>
     </div>
     
-    <div class="modal" id="signup-modal" aria-hidden="true">
+    
+    <div class="modal" id="signup-modal" aria-hidden="true" role="dialog" aria-labelledby="signup-title">
         <div class="modal-content">
             <button class="close-modal" id="close-signup-modal" aria-label="Close">&times;</button>
-            <h3 class="modal-title">Create an Account</h3>
+            <h3 class="modal-title" id="signup-title">Create an Account</h3>
             <form class="signup-form" id="signup-form">
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
@@ -461,15 +462,16 @@
         </div>
     </div>
     
-    <div class="modal recipe-modal" id="recipe-modal" aria-hidden="true">
+    
+    <div class="modal recipe-modal" id="recipe-modal" aria-hidden="true" role="dialog" aria-labelledby="recipe-modal-title">
         <div class="modal-content recipe-modal-content">
             <button class="close-modal" id="close-recipe-modal" aria-label="Close">&times;</button>
             <div class="recipe-modal-header">
                 <h2 id="recipe-modal-title">Recipe Title</h2>
                 <div class="recipe-modal-actions">
-                    <button class="action-btn" id="save-recipe-modal" aria-label="Save recipe"><i class="far fa-heart"></i></button>
+                    <button class="action-btn" id="save-recipe-modal" aria-label="Save recipe" data-recipe-id=""><i class="far fa-heart"></i></button>
                     <button class="action-btn" id="print-recipe" aria-label="Print recipe"><i class="fas fa-print"></i></button>
-                    <button class="action-btn" id="share-recipe-modal" aria-label="Share recipe"><i class="fas fa-share-alt"></i></button>
+                    <button class="action-btn" id="share-recipe-modal" aria-label="Share recipe" data-recipe-id=""><i class="fas fa-share-alt"></i></button>
                 </div>
             </div>
             
@@ -509,10 +511,11 @@
         </div>
     </div>
     
-    <div class="modal" id="share-modal" aria-hidden="true">
+    
+    <div class="modal" id="share-modal" aria-hidden="true" role="dialog" aria-labelledby="share-title">
         <div class="modal-content share-modal-content">
             <button class="close-modal" id="close-share-modal" aria-label="Close">&times;</button>
-            <h3 class="modal-title">Share</h3>
+            <h3 class="modal-title" id="share-title">Share</h3>
             <p class="share-text">Share this recipe with friends and family</p>
             <div class="share-options">
                 <button class="share-option" id="share-facebook">
@@ -533,121 +536,124 @@
                 </button>
             </div>
             <div class="share-link-container">
-                <input type="text" id="share-link" readonly>
+                <input type="text" id="share-link" readonly aria-label="Share link">
                 <button id="copy-link"><i class="fas fa-copy"></i> Copy</button>
             </div>
         </div>
     </div>
 
-
-<div class="modal" id="culinary-traditions-modal" aria-hidden="true">
-    <div class="modal-content traditions-modal-content">
-        <button class="close-modal" id="close-traditions-modal" aria-label="Close">&times;</button>
-        <h3 class="modal-title">Uzbek Culinary Traditions</h3>
-        <div class="traditions-content">
-            <img src="../images/uzbek-traditions.jpg" alt="Uzbek Culinary Traditions" class="traditions-image">
-            <div class="traditions-text">
-                <p>Uzbek cuisine is one of the most diverse and rich culinary traditions in Central Asia. It has been shaped by the country's position along the ancient Silk Road, which brought influences from China, the Middle East, and beyond.</p>
-                <p>Hospitality is at the heart of Uzbek food culture. Meals are communal affairs, with dishes served on large platters meant for sharing. The traditional Uzbek table, called a dastarkhan, is typically low to the ground, with guests seated on cushions.</p>
-                <h4>Key Elements of Uzbek Cuisine:</h4>
-                <ul>
-                    <li><strong>Rice Dishes:</strong> Plov (pilaf) is considered the national dish, with regional variations throughout the country.</li>
-                    <li><strong>Breads:</strong> Non, the round flatbread, is sacred in Uzbek culture. Breaking bread together symbolizes friendship and community.</li>
-                    <li><strong>Meat:</strong> Lamb is the preferred meat, though beef is also common. Horsemeat is used in some traditional dishes.</li>
-                    <li><strong>Tea Culture:</strong> Green tea is served throughout the day and with every meal, often in small bowls rather than cups.</li>
-                    <li><strong>Seasonal Eating:</strong> Traditional Uzbek cuisine follows seasonal patterns, with fresh fruits and vegetables playing a major role in summer and preserved foods in winter.</li>
-                </ul>
-                <p>Food preparation in Uzbekistan is often a community activity, with special dishes prepared for celebrations and festivals. Many cooking techniques have been preserved for generations, passed down through families and professional chefs alike.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal" id="tandoor-modal" aria-hidden="true">
-    <div class="modal-content technique-modal-content">
-        <button class="close-modal" id="close-tandoor-modal" aria-label="Close">&times;</button>
-        <h3 class="modal-title">Tandoor Baking</h3>
-        <div class="technique-content">
-            <img src="../images/techniques/tandoor.jpg" alt="Tandoor Oven" class="technique-image">
-            <div class="technique-text">
-                <p>The tandoor is a traditional clay oven used throughout Central Asia and the Middle East. In Uzbekistan, it's essential for baking the country's famous non bread and cooking various meat dishes.</p>
-                <h4>How a Tandoor Works:</h4>
-                <p>A tandoor is typically a cylindrical clay oven that's heated by a wood or charcoal fire at the bottom. The oven can reach temperatures of 480°C (900°F), creating an intense heat that quickly cooks food while sealing in moisture.</p>
-                <h4>Baking Bread in a Tandoor:</h4>
-                <ol>
-                    <li>The dough is shaped into flat rounds and stamped with a traditional pattern.</li>
-                    <li>The baker slaps the dough onto the interior wall of the hot tandoor.</li>
-                    <li>The bread sticks to the wall and bakes quickly, developing a crisp exterior while remaining soft inside.</li>
-                    <li>When ready, the baker uses a hook to remove the bread from the oven wall.</li>
-                </ol>
-                <h4>Cooking Meat:</h4>
-                <p>For meat dishes like tandoori kabobs, marinated meat is placed on long skewers and lowered into the tandoor. The intense heat sears the outside while the interior cooks to juicy perfection.</p>
-                <p>The unique flavor of tandoor-cooked foods comes from the combination of smoke, radiant heat, and the clay itself, which imparts a subtle earthy flavor to the food.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal" id="kazan-modal" aria-hidden="true">
-    <div class="modal-content technique-modal-content">
-        <button class="close-modal" id="close-kazan-modal" aria-label="Close">&times;</button>
-        <h3 class="modal-title">Kazan Cooking</h3>
-        <div class="technique-content">
-            <img src="../images/techniques/kazan.jpg" alt="Kazan Cooking" class="technique-image">
-            <div class="technique-text">
-                <p>The kazan is a traditional Central Asian cooking pot that is essential for preparing Uzbekistan's national dish, plov, as well as many other traditional recipes.</p>
-                <h4>About the Kazan:</h4>
-                <p>A kazan is a heavy, hemispherical cast-iron pot with a rounded bottom and two handles. Traditional kazans are made of cast iron, though modern versions may be made of aluminum or steel. The thick walls and rounded shape allow for even heat distribution and retention.</p>
-                <h4>Cooking with a Kazan:</h4>
-                <ol>
-                    <li>The kazan is typically placed over an open flame or hot coals.</li>
-                    <li>Oil is heated in the bottom, and meat is browned first to develop flavor.</li>
-                    <li>Vegetables like onions and carrots are added and sautéed.</li>
-                    <li>Rice or other grains are layered on top without stirring.</li>
-                    <li>Water or broth is added, and the mixture is allowed to simmer slowly.</li>
-                </ol>
-                <h4>The Importance of the Kazan:</h4>
-                <p>The design of the kazan allows for a unique cooking method where ingredients are layered rather than mixed. This creates distinct flavors and textures in the finished dish. The heavy material also retains heat well, allowing for slow cooking that develops deep flavors.</p>
-                <p>In Uzbek culture, the size of a family's kazan is often a point of pride, with large kazans capable of cooking plov for dozens of guests being used for celebrations and community gatherings.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal" id="spice-modal" aria-hidden="true">
-    <div class="modal-content technique-modal-content">
-        <button class="close-modal" id="close-spice-modal" aria-label="Close">&times;</button>
-        <h3 class="modal-title">Spice Blending</h3>
-        <div class="technique-content">
-            <img src="../images/techniques/spices.jpg" alt="Uzbek Spices" class="technique-image">
-            <div class="technique-text">
-                <p>Spices play a crucial role in Uzbek cuisine, adding depth, aroma, and complexity to dishes. Unlike some Asian cuisines, Uzbek food is not typically spicy-hot, but rather aromatic and flavorful.</p>
-                <h4>Common Uzbek Spices:</h4>
-                <ul>
-                    <li><strong>Cumin (zira):</strong> Perhaps the most important spice in Uzbek cooking, used in plov, soups, and meat dishes.</li>
-                    <li><strong>Coriander:</strong> Both the seeds and fresh leaves (cilantro) are used extensively.</li>
-                    <li><strong>Barberries:</strong> These tart red berries add a sour note to rice dishes.</li>
-                    <li><strong>Saffron:</strong> Used in special versions of plov for celebrations.</li>
-                    <li><strong>Black pepper:</strong> Used moderately for warmth rather than heat.</li>
-                    <li><strong>Paprika:</strong> Adds color and mild flavor to many dishes.</li>
-                </ul>
-                <h4>Spice Blending Techniques:</h4>
-                <p>Uzbek cooks typically toast whole spices before grinding them to release their essential oils and enhance their flavors. Many families have their own secret spice blends for plov and other traditional dishes.</p>
-                <h4>Regional Variations:</h4>
-                <p>Different regions of Uzbekistan have their own spice preferences. Bukhara and Samarkand, with their strong Persian influences, tend to use more complex spice combinations, while northern regions may use simpler seasonings.</p>
-                <p>The art of spice blending in Uzbek cuisine is often passed down through generations, with each family having their own subtle variations on classic recipes.</p>
-            </div>
-        </div>
-    </div>
-</div>
     
-    <div class="toast" id="toast">
+    <div class="modal" id="culinary-traditions-modal" aria-hidden="true" role="dialog" aria-labelledby="traditions-title">
+        <div class="modal-content traditions-modal-content">
+            <button class="close-modal" id="close-traditions-modal" aria-label="Close">&times;</button>
+            <h3 class="modal-title" id="traditions-title">Uzbek Culinary Traditions</h3>
+            <div class="traditions-content">
+                <img src="../images/uzbek-traditions.jpg" alt="Uzbek Culinary Traditions" class="traditions-image">
+                <div class="traditions-text">
+                    <p>Uzbek cuisine is one of the most diverse and rich culinary traditions in Central Asia. It has been shaped by the country's position along the ancient Silk Road, which brought influences from China, the Middle East, and beyond.</p>
+                    <p>Hospitality is at the heart of Uzbek food culture. Meals are communal affairs, with dishes served on large platters meant for sharing. The traditional Uzbek table, called a dastarkhan, is typically low to the ground, with guests seated on cushions.</p>
+                    <h4>Key Elements of Uzbek Cuisine:</h4>
+                    <ul>
+                        <li><strong>Rice Dishes:</strong> Plov (pilaf) is considered the national dish, with regional variations throughout the country.</li>
+                        <li><strong>Breads:</strong> Non, the round flatbread, is sacred in Uzbek culture. Breaking bread together symbolizes friendship and community.</li>
+                        <li><strong>Meat:</strong> Lamb is the preferred meat, though beef is also common. Horsemeat is used in some traditional dishes.</li>
+                        <li><strong>Tea Culture:</strong> Green tea is served throughout the day and with every meal, often in small bowls rather than cups.</li>
+                        <li><strong>Seasonal Eating:</strong> Traditional Uzbek cuisine follows seasonal patterns, with fresh fruits and vegetables playing a major role in summer and preserved foods in winter.</li>
+                    </ul>
+                    <p>Food preparation in Uzbekistan is often a community activity, with special dishes prepared for celebrations and festivals. Many cooking techniques have been preserved for generations, passed down through families and professional chefs alike.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal" id="tandoor-modal" aria-hidden="true" role="dialog" aria-labelledby="tandoor-title">
+        <div class="modal-content technique-modal-content">
+            <button class="close-modal" id="close-tandoor-modal" aria-label="Close">&times;</button>
+            <h3 class="modal-title" id="tandoor-title">Tandoor Baking</h3>
+            <div class="technique-content">
+                <img src="../images/techniques/tandoor.jpg" alt="Tandoor Oven" class="technique-image">
+                <div class="technique-text">
+                    <p>The tandoor is a traditional clay oven used throughout Central Asia and the Middle East. In Uzbekistan, it's essential for baking the country's famous non bread and cooking various meat dishes.</p>
+                    <h4>How a Tandoor Works:</h4>
+                    <p>A tandoor is typically a cylindrical clay oven that's heated by a wood or charcoal fire at the bottom. The oven can reach temperatures of 480°C (900°F), creating an intense heat that quickly cooks food while sealing in moisture.</p>
+                    <h4>Baking Bread in a Tandoor:</h4>
+                    <ol>
+                        <li>The dough is shaped into flat rounds and stamped with a traditional pattern.</li>
+                        <li>The baker slaps the dough onto the interior wall of the hot tandoor.</li>
+                        <li>The bread sticks to the wall and bakes quickly, developing a crisp exterior while remaining soft inside.</li>
+                        <li>When ready, the baker uses a hook to remove the bread from the oven wall.</li>
+                    </ol>
+                    <h4>Cooking Meat:</h4>
+                    <p>For meat dishes like tandoori kabobs, marinated meat is placed on long skewers and lowered into the tandoor. The intense heat sears the outside while the interior cooks to juicy perfection.</p>
+                    <p>The unique flavor of tandoor-cooked foods comes from the combination of smoke, radiant heat, and the clay itself, which imparts a subtle earthy flavor to the food.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal" id="kazan-modal" aria-hidden="true" role="dialog" aria-labelledby="kazan-title">
+        <div class="modal-content technique-modal-content">
+            <button class="close-modal" id="close-kazan-modal" aria-label="Close">&times;</button>
+            <h3 class="modal-title" id="kazan-title">Kazan Cooking</h3>
+            <div class="technique-content">
+                <img src="../images/techniques/kazan.jpg" alt="Kazan Cooking" class="technique-image">
+                <div class="technique-text">
+                    <p>The kazan is a traditional Central Asian cooking pot that is essential for preparing Uzbekistan's national dish, plov, as well as many other traditional recipes.</p>
+                    <h4>About the Kazan:</h4>
+                    <p>A kazan is a heavy, hemispherical cast-iron pot with a rounded bottom and two handles. Traditional kazans are made of cast iron, though modern versions may be made of aluminum or steel. The thick walls and rounded shape allow for even heat distribution and retention.</p>
+                    <h4>Cooking with a Kazan:</h4>
+                    <ol>
+                        <li>The kazan is typically placed over an open flame or hot coals.</li>
+                        <li>Oil is heated in the bottom, and meat is browned first to develop flavor.</li>
+                        <li>Vegetables like onions and carrots are added and sautéed.</li>
+                        <li>Rice or other grains are layered on top without stirring.</li>
+                        <li>Water or broth is added, and the mixture is allowed to simmer slowly.</li>
+                    </ol>
+                    <h4>The Importance of the Kazan:</h4>
+                    <p>The design of the kazan allows for a unique cooking method where ingredients are layered rather than mixed. This creates distinct flavors and textures in the finished dish. The heavy material also retains heat well, allowing for slow cooking that develops deep flavors.</p>
+                    <p>In Uzbek culture, the size of a family's kazan is often a point of pride, with large kazans capable of cooking plov for dozens of guests being used for celebrations and community gatherings.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal" id="spice-modal" aria-hidden="true" role="dialog" aria-labelledby="spice-title">
+        <div class="modal-content technique-modal-content">
+            <button class="close-modal" id="close-spice-modal" aria-label="Close">&times;</button>
+            <h3 class="modal-title" id="spice-title">Spice Blending</h3>
+            <div class="technique-content">
+                <img src="../images/techniques/spices.jpg" alt="Uzbek Spices" class="technique-image">
+                <div class="technique-text">
+                    <p>Spices play a crucial role in Uzbek cuisine, adding depth, aroma, and complexity to dishes. Unlike some Asian cuisines, Uzbek food is not typically spicy-hot, but rather aromatic and flavorful.</p>
+                    <h4>Common Uzbek Spices:</h4>
+                    <ul>
+                        <li><strong>Cumin (zira):</strong> Perhaps the most important spice in Uzbek cooking, used in plov, soups, and meat dishes.</li>
+                        <li><strong>Coriander:</strong> Both the seeds and fresh leaves (cilantro) are used extensively.</li>
+                        <li><strong>Barberries:</strong> These tart red berries add a sour note to rice dishes.</li>
+                        <li><strong>Saffron:</strong> Used in special versions of plov for celebrations.</li>
+                        <li><strong>Black pepper:</strong> Used moderately for warmth rather than heat.</li>
+                        <li><strong>Paprika:</strong> Adds color and mild flavor to many dishes.</li>
+                    </ul>
+                    <h4>Spice Blending Techniques:</h4>
+                    <p>Uzbek cooks typically toast whole spices before grinding them to release their essential oils and enhance their flavors. Many families have their own secret spice blends for plov and other traditional dishes.</p>
+                    <h4>Regional Variations:</h4>
+                    <p>Different regions of Uzbekistan have their own spice preferences. Bukhara and Samarkand, with their strong Persian influences, tend to use more complex spice combinations, while northern regions may use simpler seasonings.</p>
+                    <p>The art of spice blending in Uzbek cuisine is often passed down through generations, with each family having their own subtle variations on classic recipes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="toast" id="toast" role="alert" aria-live="polite">
         <div class="toast-content">
             <i class="fas fa-check-circle toast-icon"></i>
             <div class="toast-message">Success! Your action has been completed.</div>
         </div>
-        <button class="toast-close" id="toast-close">&times;</button>
+        <button class="toast-close" id="toast-close" aria-label="Close notification">&times;</button>
     </div>
 
     <script src="../js/modal.js"></script>
