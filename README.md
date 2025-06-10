@@ -1,7 +1,10 @@
 ![image](https://github.com/user-attachments/assets/3b6c52cd-f84b-45d7-8cca-0edf63f1c65d)
-<<<<<<< HEAD
+
 Maeda Recipe Manager
+
 Overview
+
+
 Maeda Recipe Manager is a comprehensive culinary platform offering AI-powered recipe management, live cooking sessions with professionals, and smart shopping list functionality. The application helps users discover recipes based on available ingredients, explore diverse cuisines (including specialized Uzbek and European sections), and access video tutorials.
 
 Key Features
